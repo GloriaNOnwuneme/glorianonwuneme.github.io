@@ -3,1105 +3,361 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="favicon.png" rel="icon" sizes="114x114" type="image/png">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
-
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-	<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-
-	<style>
-		*, *::before, *::after {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
-
-		body {display: block; font-family: Jost, sans-serif;}
-
-		.material-symbols-outlined {
-			font-variation-settings:
-			'FILL' 0,
-			'wght' 400,
-			'GRAD' 0,
-			'opsz' 24
-		}
-
-
-		main {width: 100%; min-width: 300px !important;}
-
-		section:not(:first-of-type) {height: 100vh; /*min-height: 700px;*/ padding: 4rem 4.3rem; scroll-margin-top: 60px;} 
-
-		.hrdiv {display: block; border: .1px solid lightgrey; width: 60%; margin: auto; border-bottom: none;}
-
-		#socials {display: none; width: 2.5rem; position: fixed; left: 0; top: 50%; transform: translateY(-50%); gap: .2rem; & * {width: 100%; aspect-ratio: 1/1;}}
-
-		.social-link {border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
-
-		.socials-scroll {display: flex !important;}
-
-		#header {width: 100%; position: sticky; height: max-content; align-content: center; justify-items: space-between !important; gap: 1rem !important; top: -5px; background: white; text-decoration: none; padding: .5rem .7rem; box-shadow: 2px 2px 5px rgba(0,0,0,.3); z-index: 20;} 
-
-		#logo {display: flex; flex-wrap: nowrap; align-content: center;}
-		#logotext {font-size: 1.7rem;}
-		#header, #mobile-menu {& * {color: slategrey !important;}}
-		#header .nav-link {align-self: center !important;}
-		
-		#header .nav-link.active:not(:first-of-type) {border-bottom: 2px solid blue;}
-
-		#logotext {color: black !important;}
-
-		#header a:first-of-type {margin-right: auto;}
-
-		.email-btn {height: max-content; width: max-content; place-content: center; text-decoration: none; & * {font-size: 1.6rem !important; } & button {display: flex; align-items: center; pointer-events: none; user-select: none;}}
-
-		.contact-demo-frame {display: block; position: absolute; place-items: center; overflow: hidden; top: 50%; right: 50%; transform: translate(85%, -60%); filter: drop-shadow(7px 7px 7px green); 
-			&:first-of-type {transform: translate(50%, -85%); filter: drop-shadow(7px 7px 7px red);}
-			&:nth-of-type(2) {transform: translate(10%, -64%); filter: drop-shadow(7px 7px 7px purple);}
-			&:last-of-type {transform: translate(50%, -30%); filter: drop-shadow(7px 7px 7px orange);}
-		}
-
-		#hero-section, #contact {
-			display: grid;
-			position: relative;
-			grid-auto-flow: columns;
-			grid-template-rows: 1fr;
-			gap: 1rem;
-			height: calc(var(--vh, 1vh) * 90);
-			& > div:first-of-type {
-				display: grid;
-				gap: .9rem !important;
-			}
-			& p {font-size: 1.4rem;}
-		}
-
-		#hero-section {
-			height: max-content;
-			grid-template-columns: 5fr 3fr;
-			& > div {display: grid; place-items: start; padding: 4rem 3rem;}
-			& > div:last-of-type {height: max-content; place-items: start; gap: 1.5rem !important;}
-			& > div:first-of-type {justify-content: center; justify-items: center; background: black;}
-		}
-
-		#contact {
-			height: 90vh;
-			grid-template-columns: 3fr 5fr;
-			& > div:last-of-type {display: grid; place-items: center;}
-		}
-
-
-		#contact {grid-template-columns: 2fr 1fr !important; & > div:first-of-type {grid-area: 1/2/2/3 !important; display: grid; align-content: center; } & > div:last-of-type {position: relative;}}
-
-		#hero-demo, .contact-demo {border-radius: 15px; overflow: hidden;}
-
-		#hero-demo {width: 70%; background: white;}
-		.contact-demo {width: 100%;}
-		#hero-demo .carousel-inner, .contact-demo .carousel-ctn {width: 100%; margin: auto; & img {max-inline-size: 100%; block-size: auto; object-position: center;}}
+	<link href="style.css" rel="stylesheet" />
 	
-		#hero-demo .carousel-inner {aspect-ratio: 4/3;}
 
-		.contact-demo .carousel-ctn {aspect-ratio: 1/1;}
 
-		#contact-demo1 {clip-path: view-box circle(30%);}
-		#contact-demo2 {clip-path: view-box circle(37%);}
-		#contact-demo3 {clip-path: view-box circle(40%);}
-		#contact-demo4 {clip-path: view-box circle(20%);}
 
-		#mywork {position: relative;}
-
-		#worksamples {
-			display: block;
-			position: absolute;
-			width: calc(100vh - 8rem);
-			height: calc(100vw - 8.6rem);
-			right: calc(8rem - 100vh + 4.3rem); 
-			bottom: 4rem;
-			transform: rotate(-90deg);
-			transform-origin: bottom left;
-			filter: drop-shadow(-10px 4px 8px rgba(0,0,0,.8));
-
-			& .show {height: calc(100vw - 8.6rem - var(--bw));}
-			& .accordion-body {position: relative; height: calc(100vh - 8rem); width: calc(100vw - 8.6rem - var(--bw));}
-			& .accordion-button {background: white; writing-mode: vertical-rl; font-size: 1.5rem; text-align: left !important; &::after {display: none;}}
-		}
-
-		#worksamples .header-no {transform: rotate(90deg); font-size: 2rem;}
-	
-		#sampleprompt {position: absolute; right: 4.3rem; top: 50%; transform: translateY(-50%); transition: opacity 750ms; max-width: 50%; text-align: right; & p {display: flex; justify-content: right; align-items: center;} & .header-no {font-size: 1.4rem; margin-right: .5rem;}}
-
-		.samplegrid {display: grid; width: 100%; height: 100%; grid-template-columns: repeat(2,  calc(50% - .5rem)); grid-template-rows: repeat(2, calc(50% - .5rem)); gap: 2rem 1rem; padding: 1rem; & > div:not(:nth-of-type(2)) {padding: 1rem 1.8rem;} & > div {font-size: .9rem; width: 100%; height: 100%;} & > div:not(:nth-of-type(3)) {display: grid; align-content: space-evenly;} & > div:nth-of-type(2), & > div:nth-of-type(3) {box-shadow: 2px 2px 5px rgba(0,0,0,.4); overflow: hidden; border-radius: 20px;} & h3 {font-size: 1.4rem;}}
-
-
-		.samplegrid, #vizctn {position: absolute; top: -100%; left: 0; height: 100%; width: 100%; transform: rotate(90deg); transform-origin: bottom left;}
-
-
-
-		#vizctn {padding-top: 10%;}
-		.demos {display: block;}
-		#mywork .carousel-inner {height: calc(.5*(100vh - 11rem));}
-
-		#mywork .carousel-item {height: 100%;}
-
-		#mywork .carousel-control-prev, #mywork .carousel-control-next, #hero-demo .carousel-control-prev, #hero-demo .carousel-control-next {
-			width: 2.5rem;
-			height: 2.5rem;
-			align-self: center;
-			border-radius: 50%;
-			background: blue;
-			margin: 0.5rem;	
-		}
-
-		#hero-demo .carousel-control-prev, #hero-demo .carousel-control-next {
-			display: none;
-		}
-
-		.leveldemophoto {
-			max-inline-size: 100%;
-			max-block-size: auto;
-			object-fit: cover; 
-		}
-
-
-		#mywork .carousel-caption {font-size: .95rem; background: rgba(0,0,0,.7); width: 100%; bottom: 0; padding: .4rem .7rem;}
-
-		.samplebtn-rect {display: block; float: left; margin-right: .7rem; height: 80%; width: max-content; padding: .7rem; border-radius: 1.0rem; background: linear-gradient(to right, black, silver, black); box-shadow: 1px 4px 2px rgba(0,0,0,.7); transition: transform 200ms; & button {height: 100%; aspect-ratio: 4/7; border-radius: .5rem; background-position: center; background-size: 150% auto; background-repeat: no-repeat !important; border: none;}}
-
-		#samplebtn1 {background: url('https://github.com/user-attachments/assets/0c518791-4bb8-4fc4-bbc6-a07ca8ec5c4c') !important; background-position: 30% bottom !important; background-size: 220% auto !important;}
-		#samplebtn2 {background: url('https://github.com/user-attachments/assets/cdcde651-779a-4a79-b93e-031cf0a4dbd1') !important; background-size: 140% auto !important; background-position: 10% top !important;}
-		#samplebtn3 {background: url('https://github.com/user-attachments/assets/ddeeab7e-2bea-4eef-99bc-4c58aab2c537') !important; background-position: center 60% !important; background-size: auto 200% !important;}
-		
-
-		.samplebtn-rect:hover {transform: scale(1.1);}
-
-		#vizctn {padding: 1rem;}
-		#vizgrid {display: flex; flex-wrap: wrap; gap: 11%; place-content: center; height: 100%; width: 100%; & > * {max-width: 25%; flex: 1 1 auto; padding: 0; aspect-ratio: 1/1; border-radius: 50% !important; overflow: hidden; box-shadow: 2.5px 5px 3px rgba(0,0,0,.4), -2.5px 5px 3px rgba(0,0,0,.4); transition: transform 300ms, border-radius 300ms; & button {font-size: .9rem; width: 100%; aspect-ratio: 1/1; margin:0; background-position: center !important; background-size: auto 120% !important; border: none; transition: background-size 300ms;} }}
-	
-		.samplebtn p {opacity: 0;}
-
-		#vizgrid > a:focus, #vizgrid > a:hover {transform: scale(1.1); border-radius: 15px !important; & p {opacity: 1; filter: none !important; backdrop-filter: blur(50px);} & button {background-size: 550% auto !important;}}
-
-		#skills {display: grid; height: 100%; grid-auto-flow: columns; grid-template-columns: repeat(2, 1fr); gap: 5rem; & h3 {text-align: center;} & > div {display: grid; align-content: space-evenly; & > div:last-of-type {text-align: center;}}}
-
-
-		.list-group-item {
-			display: flex;			
-			place-content: center !important;
-			transition: box-shadow 800ms, transform 800ms, border-radius 200ms;
-		}
-
-		#skilltabs .list-group-item {
-			width: 33% !important;
-			border-radius: 0;
-			border: none;
-			border-bottom: .2px solid lightgrey;
-			&:not(:first-of-type) {border-left: .2px solid lightgrey !important;}
-
-		}
-
-		#aboutme .list-group-item {
-			border-radius: 0;
-			border: none;
-			border-right: .2px solid lightgrey;
-			&:not(:first-of-type) {border-top: .2px solid lightgrey !important;}
-
-		}
-
-		.list-group-item.active, #mywork .accordion-button:not(.collapsed) {
-			border: none !important;
-			color: white !important;
-			background: black !important;
-			transform: scale(1.1) !important;
-			border-radius: 10px !important;
-			box-shadow: 4px 4px 3px rgba(0, 0, 0, .55) !important;		
-		}
-
-		#approach {margin-bottom: 2rem;}
-
-		#mobile-menu-btn {display: none; background: none; border: none; font-size: 1.7rem; color: black !important;}
-
-		#skillgroups {margin-top: 2rem;}
-
-		#aboutme {display: grid; place-items: space-evenly;}
-		#milestones {display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.4rem; align-items: start !important; & .tab-pane {padding: .3rem .8rem;}}
-
-		footer {display: flex; height: max-content; justify-content: space-between; column-gap: .3rem; padding: 0px .9rem; background: orange; color: white; align-content: center !important; align-items: center !important;}
-
-		.tab-title {font-size: .8rem; display: inline;}
-
-		.pane-title {display: none;} 
-
-		#skills, #aboutme {& .pane-title {text-align: center !important;}}
-
-		.tab-pane-cols {display: flex; flex-wrap: wrap; gap: .5rem; place-content: center; text-align: center; overflow: auto; & > * {min-width: 30%;}}
-		#milestones .tab-content {border-top: .2px solid lightgrey; font-size: .9rem;}
-
-		*[data-bs-toggle="popover"] {text-decoration: dashed underline slategrey 1.5px !important; cursor: help;}
-
-		.widescreen-text {display: inline;}
-		.small-screen-text {display: none;}
-
-
-		@media (prefers-reduced-motion) {
-			#hero-demo .carousel-control-prev, #hero-demo .carousel-control-next {
-				display: block;
-			}
-		}
-
-		@media (max-width: 1050px) {
-			:root {font-size: 13.5px;}
-			#header a:not(:first-of-type) {display: none;}
-			#mobile-menu-btn {display: inline;}
-
-
-		}
-
-
-		@media (pointer: coarse) {
-			.samplebtn p {opacity: 1 !important;}
-		}
-
-
-		@media (max-width: 850px), (max-height: 500px) and (orientation: landscape) {
-
-			.samplebtn p {opacity: 1 !important; backdrop-filter: blur(50px) !important; font-size: .75rem;}
-
-			.small-screen-text {display: inline;}
-			.widescreen-text {display: none;}
-
-			#logo {display: flex; flex-wrap: nowrap; align-content: center;}
-			#logotext {font-size: 1.4rem;}
-			#logo img {max-inline-size: 2rem;}
-
-			#hero-section * {font-size: 1rem !important;}
-			#hero-section > div:last-of-type {gap: .8rem !important;} 
-
-			section:not(:first-of-type) {height: max-content !important; min-height: 500px !important; padding: 4rem;}
-
-			#worksamples {
-				position: static !important;
-				transform: none !important;
-				width: 100% !important;
-				height: unset !important;
-				& .show {height: max-content;}
-				& .accordion-body {height: 100%; width: 100%;}
-				& .accordion-button {writing-mode: unset; font-size: 1.5rem; &::after {display: inline;}}
-			}
-
-			.header-no {display: none;}
-
-			#sampleprompt {position: static; right: unset; top: unset; transform: none; max-width: unset; text-align: center; & span {display: none;}}
-
-
-
-			#worksamples .accordion-body {position: relative; height: unset; width: unset;}
-
-			.samplegrid {
-				display: grid;
-				width: 100%;
-				height: 100%;
-				grid-template-columns: 1fr;
-				grid-template-rows: repeat(4, max-content);
-				gap: 1rem;
-				padding: unset; 
-				& > div {width: 100%; height: 100%;}
-				& > div:nth-of-type(3) {grid-row-start: 4;}
-				& h3 {font-size: 1.2rem;}
-			}
-
-			.samplegrid, #vizctn {position: unset; height: 100%; width: 100%; transform: none;
-				& > div:not(:nth-of-type(2)) {padding: 1rem;}
-			}
-
-			.tab-title {display: none;}
-			.pane-title {display: inline;}
-
-			#mywork .carousel-control-prev, #mywork .carousel-control-next {
-				width: 2rem; height: 2rem; & * {transform: scale(.7) !important; transform-origin: center !important;}
-			}
-
-			#mywork .carousel-caption {font-size: 1rem;}
-
-			#mywork .carousel-inner {height: 25vh; min-height: 300px;}
-
-			.samplebtn-rect {height: 100px !important; aspect-ratio: 1/1 !important; padding: .4rem; border-radius: 1rem;
-				& > button {width: 100%; border-radius: .6rem;}
-			}
-
-
-			#samplebtn1 {background: url('https://github.com/user-attachments/assets/0c518791-4bb8-4fc4-bbc6-a07ca8ec5c4c') !important; background-position: center bottom !important; background-size: 180% auto !important;}
-			#samplebtn2 {background: url('https://github.com/user-attachments/assets/cdcde651-779a-4a79-b93e-031cf0a4dbd1') !important; background-size: 140% auto !important; background-position: center !important;}
-			#samplebtn3 {background: url('https://github.com/user-attachments/assets/ddeeab7e-2bea-4eef-99bc-4c58aab2c537') !important; background-position: center 40% !important; background-size: 180% auto !important;}
-
-			#vizgrid {gap: 1rem; place-content: center; height: unset; width: 100%; & > div:first-of-type {display: none;} & > * {display: block; padding: 0; max-width: 200px; & button {width: 100%; aspect-ratio: 1/1; margin: 0;} }}
-
-			#vizgrid > a:focus, #vizgrid > a:hover {transform: none; border-radius: 50% !important;}
-
-			#skills {height: max-content !important; grid-auto-flow: rows !important; grid-template-rows: repeat(2, max-content) !important; grid-template-columns: 1fr !important;}
-
-		}
-
-
-		@media (max-width: 500px) {
-
-			#header {& > .nav-link:not(last-of-type) {display: none;} & > .nav-link:first-of-type {display: inline;}}
-
-			h2 {margin: auto !important;}
-
-			#hero-section {
-				height: max-content !important;
-				width: 100%;
-				grid-template-columns: 1fr;
-				grid-auto-flow: rows !important; grid-template-rows: repeat(2, max-content) !important;
-
-				& > div:last-of-type {
-					gap: .5rem; grid-area: 1/1/2/3 !important; text-align: center;
-					
-					& > a {
-						margin: auto !important;
-					}
-				} 
-
-				& > div:first-of-type {
-					gap: .5rem; grid-area: 2/1/3/3 !important; width: 100% !important;
-					& > div {
-						width: 100%;
-					}
-				}
-			}
-
-			#mywork .carousel-inner {height: 25vh; min-height: 220px;}
-
-
-			#milestones {width: 100%; grid-template-columns: 1fr !important; grid-template-rows: repeat(2, 300px) !important; row-gap: 1rem;}
-
-			#contact {
-				width: 100% !important;
-				grid-template-columns: 1fr;
-				grid-auto-flow: rows !important;
-				grid-template-rows: max-content 100vw !important;
-				& > div:first-of-type {
-					gap: .5rem;
-					grid-area: 1/1/2/3 !important; 
-					text-align: center; 
-
-				} & > div:last-of-type {
-					gap: .5rem;
-					grid-area: 2/1/3/3 !important;
-				}
-			}
-
-			.email-btn {margin: auto !important;}
-
-			footer {
-				padding: .3rem;
-				& > * {
-					width: 50% !important;
-				}
-				& p {align-self: stretch !important;}
-			}
-			
-			#socials {position: relative; transform: none !important; column-gap: .4rem; justify-content: flex-end; & > * {border-radius: 5px; width: 30%; max-width: 2.4rem; align-self: center;}}
-
-			
-			#logotext {display: none;}
-	
-			.samplegrid {grid-template-columns: 1fr; grid-template-rows: repeat(4, max-content) !important;}
-
-
-		}
-
-	</style>
 </head>
 
+<body>
 
+<header>
+	<a href="#"><img src="logo.svg" width="50" height="50" style="overflow: hidden;" /><span>loria N. Onwuneme</span></a>
+	<nav id="nav-ctn">
 
-<body data-bs-spy="scroll" data-bs-target="#header" data-bs-smooth-scroll="true">
+		<div class="carousel" id="nav-scroller">
+		<div>
+			<p><a href="#skills">Skills & services</a></p>
+		</div>
+		<div>
+			<p><a href="#work">Work</a></p>
+		</div>
+		<div>
+			<p><a href="#about">About</a></p>
+		</div>
+		<div>
+			<p><a href="#contact">Contact</a></p>
+		</div>
+		</div>
 
-
-<!-- need to modify offcanvas via JS -->
-<div class="offcanvas offcanvas-start" tabindex="-1" data-bs-scroll="true" id="mobile-menu" data-bs-backdrop="false" aria-labelledby="mobile-menu">
-	<div class="offcanvas-header">
-		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-	</div>
-
-	<div class="offcanvas-body">
-	<nav class="nav flex-column">
-	  <span data-bs-dismiss="offcanvas"><a class="nav-link" href="#mywork">My Work</a></span>
-	  <span data-bs-dismiss="offcanvas"><a class="nav-link" href="#services">Services</a></span>
-	  <span data-bs-dismiss="offcanvas"><a class="nav-link" href="#aboutme">About Me</a></span>
-	  <span data-bs-dismiss="offcanvas"><a class="nav-link" href="#contact"><span class="btn btn-secondary" style="color: white !important;">Contact</a></span>
+		<button class="control-btn left"></button>
+		<button class="control-btn right"></button>
 	</nav>
+</header>
+
+
+<section id="hero-header" style="height:100vh;" class="hero1">
+	<div id="hero-filter" style="position: absolute; height: 100%; width: 100%; top: 0; right: 0; left: 0;"></div>
+
+	<div id="hero-div">
+
+		<div>
+			<h1>Gloria Nneoma Onwuneme</h1>
+			<p>As a web developer and designer, my goal is to make sure that your audience and clients understand why and how you and your creative offering are of value.</p>
+		</div>
+
+		<a href="mailto:gloria@translatortools.org" class="email-btn">Copy email</a>
+		<a href="https://www.translatortools.org/web-design-form" target="_blank">Request web design services</a>
 
 	</div>
-</div>
-
-<main>
-<nav class="nav" id="header">
-  <a class="nav-link" href="#" id="logo"><img loading="lazy" style="max-block-size: 2.7rem;" src="https://images.squarespace-cdn.com/content/v1/656f04d07e576b6616f746ac/abdbf7c3-54ec-461b-955b-3125b8151371/favicon.jpg?format=1000w" target="_blank" alt="logo"><span id="logotext">loria N Onwuneme</span></a>
-  <a class="nav-link" href="#mywork">My Work</a>
-  <a class="nav-link" href="#services">Services</a>
-  <a class="nav-link" href="#aboutme">About Me</a>
-  <a class="btn btn-pill btn-secondary" href="#contact" style="color: white !important; height: min-content; padding: .1rem .5rem; align-self: center !important;">Contact</a>
-	<button data-bs-target="#mobile-menu" data-bs-toggle="offcanvas" id="mobile-menu-btn">☰</button>
-</nav>
-
-
-<section id="hero-section">
-	<div>
-
-			<div id="hero-demo" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
-				<div class="carousel-inner">
-					
-					<div class="carousel-item active">
-						<img loading="eager" class="leveldemophoto text-center" src="https://github.com/user-attachments/assets/87e156ad-1dc1-4651-bf78-1dd7e7b44822" alt="Bar chart of U.S G.D.P." style="max-inline-size: 140%; transform: translate(-11%, -30%);">
-					</div>
-
-
-					<div class="carousel-item">
-						<img loading="eager" class="leveldemophoto" src="https://github.com/user-attachments/assets/0c518791-4bb8-4fc4-bbc6-a07ca8ec5c4c" alt="pxreader web app - mobile display" style="transform: translateY(-60%);">
-					</div>
-
-					<div class="carousel-item">
-						<img loading="eager" class="leveldemophoto" src="https://github.com/user-attachments/assets/606fad35-1e08-4283-b45c-39387b769715" alt="how-to guide for click-to-select browser extension" style="max-inline-size: 120% !important;">
-					</div>
-
-					<div class="carousel-item">
-						<img loading="eager" class="leveldemophoto" src="https://github.com/user-attachments/assets/0d907891-1786-45ab-9e45-b1c154f0e4bf" alt="treemap showing top 100 earning kickstarter campaigns"  style="max-inline-size: 130% !important; transform: translate(-12%,-17%);">
-					</div>
-
-
-					<div class="carousel-item">
-						<img loading="eager" class="leveldemophoto" src="https://github.com/user-attachments/assets/597709ad-863a-4ac7-9480-399d59759b01" alt="heatmap showing global temperatures over past 250 years" style="max-inline-size: 160% !important; transform: translate(-5%, -30%);">
-					</div>
-
-
-					<div class="carousel-item">
-						<img loading="eager" class="leveldemophoto" src="https://github.com/user-attachments/assets/237dee3f-5221-4e71-912e-9ff839537f79" alt="translatortools landing page" style="max-inline-size: 108% !important; transform: translateX(-3%)">
-					</div>
-
-					<div class="carousel-item">
-						<img loading="eager" class="leveldemophoto" src="https://github.com/user-attachments/assets/39b32e32-619a-444a-b0fa-556d98de4c4f" alt="us map chart showing educational attainment rates at county-level" style="max-inline-size: 146% !important; transform: translate(-11%, -20%);">
-					</div>
-
-
-
-					<div class="carousel-item">
-						<img loading="eager" class="leveldemophoto" src="https://github.com/user-attachments/assets/d6aa5947-57d2-4b3a-9e5e-86ee8b541e81" alt="pxreader web app - desktop display" style="max-inline-size: 160% !important; object-position: center !important;">
-					</div>
-				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#hero-demo" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon"aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#hero-demo" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-	    				<span class="visually-hidden">Next</span>
-		  		</button>
-
-			</div>
-
-	</div>
-
-	<div>
-		<h2>Hi, I'm Gloria &#x1F44B;...</h2>
-
-		<p>...and I'm a <strong>web developer and designer</strong>. Say hi back if you need a hand creating <strong>clear and effective online content</strong></p>
-
-		<a class="email-btn" role="button" href="mailto:gn.onwuneme@yahoo.com" target="_blank">
-			<button class="btn btn-primary">
-				<span class="material-symbols-outlined">content_copy</span>Copy email
-			</button>
-		</a>
-	</div>
-
 
 </section>
 
-<div class="hrdiv"></div>
 
-<section id="mywork">
-	<div id="sampleprompt">
-		<h2> <span>&larr; </span>Click the panels <span class="small-screen-text">below </span>to check out some of my latest work!</h2>
-		<div class="tab-title">
-			<p><span class="header-no">&#x2460;  </span> PXReader: learn to speedread in less than 15 minutes</p>
-			<p><span class="header-no">&#x2461;  </span> TranslatorTools: resource for new language industry freelancers</p>
-			<p><span class="header-no">&#x2462;  </span> Click-to-Select: the end of drag-based text selection?</p>
-			<p><span class="header-no">&#x2463;  </span> Interactive data visualisations</p>
-		</div>
+
+<section id="skills">
+<h2 class="fade-in">Skills & Services</h2>
+
+
+<div id="skillsgrid">
+	<div id="skills-desc" class="fade-in appear">
+		<h3>My mission</h3>
+		<p>When I create or redesign a website, I aim to: 
+		<ul>	
+			<li>Create clean interfaces and facilitate rewarding, hassle-free user experiences.</li>
+			<li>Ensure that visitors quickly understand why and how its contents meet their needs.</li>
+			<li>Help my clients manage their websites with ease.</li></ul></p>
 	</div>
 
-<div class="accordion" id="worksamples">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sample1" aria-expanded="false" aria-controls="sample1">
-	<span class="header-no">&#x2460;</span><span class="pane-title">PXReader: speedreading web app</span>
-      </button>
-    </h2>
-    <div id="sample1" class="samplebox accordion-collapse collapse" data-bs-parent="#worksamples">
-      <div class="accordion-body">
+	<div id="skills-accordion">
+		<div class="accordion-item fade-in">
+			<div class="accordion-body">
 
-	<div class="samplegrid">
+			
+			<h4>Web design</h4>
+			<p>HTML</p>
+			<p>CSS</p>
+			<p>JavaScript</p>
+			<p>Bootstrap</p>
+			<p>jQuery</p>
+			<p>React</p>
+			<p>Squarespace web design</p>
+			<h4>Content creation</h4>
+			<p>SEO optimisation</p>
+			<p>Article writing</p>
+			<p>Interviewing</p>
+			<p>Research</p>
+			<p>Content curation</p>
+			<h4>Data analysis</h4>
+			<p>Data visualisation</p>
+			<p>Data storytelling</p>
+			<p>Python programming</p>
+			<p>D3</p>
 
-
-		<div><h3>Why PXReader?</h3>
-			<p>You can think of PX Speedreading Method like <a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="High-intensity interval training">HIIT</a> for your eyes - here's the <a href="https://www.youtube.com/watch?v=ZwEquW_Yij0" target="_blank">inventor Tim Ferriss explaining how it works</a>.</p>
-			<p>The original method requires the use of a physical book and strict timekeeping - all while having to scan up to <strong>1,500 words per minute</strong>!</p>
-		</div>
-
-		<div>
-
-		<div id="demos1" class="demos carousel slide">
-			<div class="carousel-inner">
-
-				<div class="carousel-item active">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/0c518791-4bb8-4fc4-bbc6-a07ca8ec5c4c' alt='pxreader exercises on mobile display' style="position: absolute; bottom: 0;">
-		  			<figcaption class="carousel-caption position-absolute top-0 start-50 translate-middle-x" style="bottom: unset;">In order to minimise the pressure of learning to speedread, I decided to build the digital version from scratch...</figcaption>
-				</div>
-
-
-				<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/81880f63-014b-484f-ab9b-385712addea3' alt='pxreader exercises how-to guide'>
-		  			<figcaption class="carousel-caption position-absolute start-50 bottom-0 translate-middle-x">...complete with intuitive controls and easy-to-read instructions!</figcaption>
-				</div>
-
-				<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/57bf9e6d-c201-4533-a033-99406870fa02' alt="px exercises demo" style="position: absolute; bottom: 0;">
-					<figcaption class="carousel-caption position-absolute top-0 start-50 translate-middle-x" style="bottom: unset;">With PXReader, you can check your baseline reading speed...</figcaption>
-				</div>
-
-	        		<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/74bb32ce-2853-4826-8628-5da815d9654c' alt='level-2-demo'>
-					<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">...work through the PX Drills...</figcaption>
-				</div>
-
-				<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/e0a72dfa-0d03-4f07-a4e7-4cedcae6a5a4' alt='px exercises results panel'>
-					<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">...and share your results...</figcaption>
-				</div>
-
-				<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://images.squarespace-cdn.com/content/v1/65c22886bda01e7be87727dc/56bdfa69-ed6b-40e7-867b-4a6a90949213/level4.png?format=1500w' alt='px exercises demo'>
-		  			<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">...all in less than 15 minutes!</figcaption>
-				</div>
-
-				
 
 			</div>
-
-			<button class="carousel-control-prev" type="button" data-bs-target="#demos1" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon"aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#demos1" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-	    			<span class="visually-hidden">Next</span>
-	  		</button>
+			<button class="accordion-btn"><h3>Toolkit</h3><span></span></button>
 		</div>
 
-		</div>
-		
-		<div><a class="samplebtn-rect" href="https://www.pxreader.com/px-exercises" target="_blank"><button id="samplebtn1"></button></a><div class="visitprompt"><p>Click this button to try out the PX Method for yourself, and get in touch if you're looking for web app developers!<br /></p></div></div>
-		<div><h3>PXReader: learn to speedread in less than 15 minutes!</h3>
-			<p>Now, keen readers and self-improvers can visit PXReader.com and work through the PX Drills on any device - all for free!</p>
-		</div>
-
-	</div>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sample2" aria-expanded="false" aria-controls="sample2">
-	<span class="header-no">&#x2461;</span><span class="pane-title">TranslatorTools: resource for new language freelancers</span>
-      </button>
-    </h2>
-    <div id="sample2" class="samplebox accordion-collapse collapse" data-bs-parent="#worksamples">
-      <div class="accordion-body">
-	<div class="samplegrid">
-		<div><h3>Why TranslatorTools?</h3>
-			<p>After almost a decade as a freelance translator, I decided to reflect on the lows ( = low-paid machine translation proofreading) and highs ( = getting published by Amazon Crossing). This led me to create a go-to resource for newbie translators.</p>
-			<p></p>
-		</div>
-
-		<div>
-
-		<div id="demos2" class="demos carousel slide">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/237dee3f-5221-4e71-912e-9ff839537f79' alt="level-1-demo">
-					<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">This website was built using <a href="https://www.squarespace.com/" target="_blank">Squarespace...</a></figcaption>
-				</div>
-
-	        		<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/dbf67bfd-5c8c-40e6-8b6e-b79a6c542354' alt='level-2-demo' style="max-inline-size: 150%; object-position: right center !important;">
-					<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">..complete with work and volunteering opportunities...</figcaption>
-				</div>
-
-				<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/e2901582-8001-4617-b288-e2b1a54d141b' alt='level-3-demo'>
-					<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">...links to translation <span><a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="Massive open online courses">MOOCs</a></span> and degree programmes...</figcaption>
-				</div>
-
-				<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/a5391c64-3904-4db4-9ac3-46b0ccd3adf6' alt='level-4-demo' style="max-inline-size: 180% !important; position: absolute !important; bottom: -14% !important; right: -30% !important;">
-		  			<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">...prizes and literary residencies...</figcaption>
-				</div>
-
-				<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/2d20d29c-2490-434d-a12c-6f3157ec30c3' alt='level-4-demo' style="position: absolute !important; top: -53% !important;">
-		  			<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">...in brief: anything a translator might need to develop as a professional!</figcaption>
-				</div>
-
+		<div class="accordion-item fade-in">
+			<div class="accordion-body">
+			<p>If you're looking to create or redesign a website, here's what you can expect:</p>
+			<br />
+			<h4>Before</h4>
+			<p>You fill in a web design request form, available <a href="https://www.translatortools.org/web-design-form" target="_blank">here</a>.</p>
+			<p>We meet for 30 minutes, during which we'll discuss your goals for your website.</p>
+			<h4>During</h4>
+			<p><i>Week 1: </i>I create the basic structure of your new website.</p>
+			<p><i>Week 2: </i>I refine the website's layout, and work on improving loading speeds and user-friendliness.</p>
+			<p>You will receive weekly status updates, at a minimum.</p>
+			<h4>After</h4>
+			<p>For individual clients, I deliver websites within <strong>2-3 weeks</strong>.</p>
+			<p>At the end of our collaboration, I'll give you a training session on how to update content with ease, and you will receive 30 days of free email support.</p>
 			</div>
 
-			<button class="carousel-control-prev" type="button" data-bs-target="#demos2" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon"aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#demos2" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-	    			<span class="visually-hidden">Next</span>
-	  		</button>
+			<button class="accordion-btn"><h3>Process</h3><span></span></button>
 		</div>
 
+		<div class="accordion-item fade-in">
+			<div class="accordion-body">
+			<h4>Web dev</h4>
+			<p>Squarespace web design</p>
+			<p>Web app development</p>
 
-		</div>
-
-		<div><a class="samplebtn-rect" href="https://www.translatortools.org" target="_blank"><button id="samplebtn2"></button></a><div class="visitprompt"><p>Click this button to check out TranslatorTools, and get in touch if you need a hand sharing your own unique gifts and experiences with the world.</p></div></div>
-
-		<div><h3>TranslatorTools: All you need as a freelance translator!</h3>
-			<p>Today, TranslatorTools exists as a one-stop webkit for new translators. I learned a lot about resource collection, content creation, SEO optimisation, and website management in the process.</p>
-		</div>
-	</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sample3" aria-expanded="false" aria-controls="sample3">
-	<span class="header-no">&#x2462;</span><span class="pane-title">Click-to-Select: the end of drag-based text selection?</span>
-      </button>
-    </h2>
-    <div id="sample3" class="samplebox accordion-collapse collapse" data-bs-parent="#worksamples">
-      <div class="accordion-body">
-	<div class="samplegrid">
-
-		<div><h3>Why Click-to-Select?</h3>
-
-			<p>If you spend as much time online as I do, you will at some point have become frustrated with how awkward text selection can be (especially on touch devices).</p>
-			<p>To fix this, I decided to create a browser extension that lets you click, rather than drag and hold, to select online content.</p>
-			<p></p>
-		</div>
-
-		<div>
-
-		<div id="demos3" class="demos carousel slide">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img loading="lazy" class="leveldemophoto" class="d-block w-100" src='https://github.com/user-attachments/assets/9224d719-3cc9-4cb2-a81c-4647903cab9c' alt="level-1-demo">
-					<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">While the web extension itself is currently under review...</figcaption>
-				</div>
-
-	        		<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/606fad35-1e08-4283-b45c-39387b769715' alt='level-4-demo'>
-					<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">...you can preview the extension that I built from scratch at click-to-select.com.</figcaption>
-				</div>
-
-
-				<div class="carousel-item">
-
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/1d62e9a3-9c04-4865-8df2-7e1310c5a714' alt='level-2-demo' style="max-width: 110% !important; object-position: -100% center !important;">
-
-		  			<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">As it's a rather novel user interaction, I feel it's important to give users a chance to try it out. What better way to do that than an interactive demo?</figcaption>
-				</div>
-
-
-				<div class="carousel-item">
-					<img loading="lazy" class="leveldemophoto" src='https://github.com/user-attachments/assets/a3d2c9a8-8bb0-4429-a707-e9dae43047fd' style="transform: scale(.8) translateY(-14%);" alt='level-3-demo'>
-					<figcaption class="carousel-caption position-absolute start-50 translate-middle-x">To further enhance the user experience, I also used Squarespace templates and front-end development libraries to ensure overall functional and aesthetic simplicity of the website.</figcaption>
-				</div>
-
+			<h4>Content</h4>
+			<p>Copywriting</p>
+			<p>Interviewing</p>
+			<p>Content curation</p>
+			<h4>Translation</h4>
+			<p>Website translation (Swedish and Danish to English)</p>
+			<p>Technical translation (Swedish and Danish to English)</p>
 			</div>
-
-			<button class="carousel-control-prev" type="button" data-bs-target="#demos3" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon"aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#demos3" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-	    			<span class="visually-hidden">Next</span>
-	  		</button>
-		</div>
-
-		</div>
-
-		<div><a class="samplebtn-rect" href="https://www.click-to-select.com" target="_blank"><button id="samplebtn3"></button></a><div class="visitprompt"><p>Click this button to try the demo on any device, and get in touch if you're looking for a developer who is serious about optimising online user experiences!</p></div></div>
-
-
-		<div><h3>Click-to-Select: Say goodbye to drag-and-hold text-selection😉</h3>
-		<p>All jokes aside: As a web developer, I value <em>ease of use</em>, and ensure it by creating <strong>clear copy</strong>, <strong>how-to guides</strong>, and <strong>interactive demos</strong> where called for.</p>
+			<button class="accordion-btn"><h3>Services</h3><span></span></button>
 		</div>
 	</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="samplebox accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sample4" aria-expanded="false" aria-controls="sample4">
-	<span class="header-no">&#x2463;</span><span class="pane-title">Interactive data visualisations</span>
-      </button>
-    </h2>
-    <div id="sample4" class="accordion-collapse collapse" data-bs-parent="#worksamples">
-      <div class="accordion-body">
-	<div id="vizctn">
-
-	<div id="vizgrid">
-		<a class="samplebtn" href="https://codepen.io/gnonwuneme/full/GRaGZdw" target="_blank"><button style="background: url('https://github.com/user-attachments/assets/2b37e962-5024-46fb-a9c7-8e4c5d4ad0cd'); background-size: 220% auto !important;"><p>Elite cyclists' doping allegations and Tour de France race times: scatterplot</p></button></a>
-
-		<a class="samplebtn" href="https://codepen.io/gnonwuneme/full/vYwrXjg" target="_blank"><button style="background: url('https://github.com/user-attachments/assets/597709ad-863a-4ac7-9480-399d59759b01'); background-size: 250% auto !important; background-position: 25% 88% !important;"><p>Global temperatures over the past 250 years: heatmap</p></button></a>
-		<a class="samplebtn" href="https://codepen.io/gnonwuneme/full/dyEKGPP" target="_blank"><button style="background: url('https://github.com/user-attachments/assets/2f079e6b-6c22-419f-9a1f-2aac8f06523e');  background-position: 40% center !important; background-size: 170% !important;"><p>US GDP trend over past 80 years: bar chart</p></button></a>
-		<a class="samplebtn" href="https://codepen.io/gnonwuneme/full/bGyKBXG" target="_blank"><button style="background: url('https://github.com/user-attachments/assets/0d907891-1786-45ab-9e45-b1c154f0e4bf'); background-position: 60% 40% !important; background-size: 300% !important;"><p>Top 100 earning Kickstarter campaigns: treemap</p></button></a>
-
-		<div style="width: 20%; align-self: center; pointer-events: none;"><button style="width: 105% !important; padding: .7rem !important; background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('https://github.com/user-attachments/assets/78b8d2b6-256d-462a-97de-ba3013d3bef3'); background-position: 10% top !important; background-size: 200% !important; margin-bottom: -10px !important;"><p style="color: white; font-size:.75rem;">How to use:<br>Click <span class="btn btn-info" style="display: inline-grid; place-content: center; color: white; width: 2.2rem; aspect-ratio: 1/1; border-radius: 50%; font-weight: bold;">?</span> for instructions,<br/>and <span class="btn btn-info material-symbols-outlined span" style="display: inline-grid; place-content: center; color: white; width: 2.2rem; aspect-ratio: 1/1; border-radius: 50%; font-weight: bold;">light_mode</span> to switch to dark-mode</p></button></div>
-
-		<a class="samplebtn" href="https://codepen.io/gnonwuneme/full/zYQaBPj" target="_blank"><button style="background: url('https://github.com/user-attachments/assets/5dbeacbe-21d8-465d-afdf-0477dab00eee'); background-size: 260% !important; background-position: center 27% !important;"><p>US county-level data for educational attainment: choropleth</p></button></a>
-
-	</div>
-	</div>
-      </div>
-    </div>
-  </div>
 </div>
 
 </section>
 
 
-<div class="hrdiv"></div>
+<section id="work">
+<h2 class="fade-in">Work</h2>
+
+<div id="carousel-ctn" class="carousel">
 
 
+	<div>
+	<div id="work1">
 
-<section id="services">
-	<div id="skills">
-		<div>
-		<h3>My Mission</h3>
-		<div id="approach"><p style="text-align: center;">As a web developer and designer, I'm all about:</p>
+		<div class="sample-desc fade-in">
 
-		<div>
-			<p>⮞   Creating <strong>clean interfaces</strong> and facilitating rewarding, <strong>hassle-free user experiences</strong></p>
-			<p>⮞   Clarifying why and how <strong>your</strong> service is of value to your target audience</p>
-			<p>⮞   Helping you <strong>get and stay</strong> ahead of your industry peers</p>
+		<!--
+		<select>
+		<option></option>
+		<option></option>
+		<option></option>
+		</select>
+		-->
+
+			<div><h3>Web design for creatives</h3><p>I've recently had the joy of redesigning german-to-english-translation.org for award-winning translator Ruth Martin. If you need a hand with your own website, please <a href="#contact">get in touch</a>!</p></div>
+			<button class="sample-btn tools-btn">Tools used</button>
+			<a class="sample-btn" href="https://web.archive.org/web/20230501120753/https://www.german-to-english-translation.org/" target="_blank">Before redesign</a>
+			<a class="sample-btn" href="https://german-to-english-translation.org" target="_blank">Visit german-to-english-translation.org</a>
+			<div class="sample-tools"><h4>Tools used</h4><p>HTML, CSS, and JavaScript</p><p>Squarespace</p><button class="tools-close-btn"></button></div>
 		</div>
 
-		
+	</div>
+	</div>
+
+
+	<div>
+	<div id="work2">
+
+		<div class="sample-desc">
+			<div><h3>PXReader - learn speedreading in less than 15 minutes</h3><p>I've turned Tim Ferriss' analogue <a href="https://tim.blog/2009/07/30/speed-reading-and-accelerated-learning/" target="_blank">scientific speedreading method</a> into an online game. Now, you can learn to speedread for free in less than 15 minutes. Available across all devices.</p></div>
+			<button class="sample-btn tools-btn">Tools used</button>
+			<a class="sample-btn" href="https://pxreader.com" target="_blank">Visit PXReader.com</a>
+			<div class="sample-tools"><h4>Tools used</h4><p>HTML, CSS, and JavaScript</p><p>Squarespace</p><p>Copywriting to simplify the science behind <br /><a href="https://pxreader.com/px-method" target="_blank">how the PX Method works</a>.</p><button class="tools-close-btn"></button></div>
 		</div>
-		</div>
 
-		<div>
-		<h3>My Toolkit</h3>
 
-			<div class="col">
-				<div>
-					<div class="list-group list-group-horizontal" id="skilltabs" role="tablist">
-						<a class="list-group-item list-group-item-action flex-fill" data-bs-toggle="list" href="#data-analysis" role="tab" aria-controls="list-data-analysis"><span class="material-symbols-outlined">monitoring</span><span class="tab-title">Data analysis</span></a>
-						<a class="list-group-item list-group-item-action flex-fill active" data-bs-toggle="list" href="#webdev" role="tab" aria-controls="list-webdev"><span class="material-symbols-outlined">web</span><span class="tab-title">Web development</span></a>
-						<a class="list-group-item list-group-item-action flex-fill" data-bs-toggle="list" href="#content" role="tab" aria-controls="list-content"><span class="material-symbols-outlined">edit</span><span class="tab-title">Content creation</span></a>
-					</div>
-				</div>
+	</div>
+	</div>
 
-				<div>
-					<div class="tab-content" id="skillgroups">
-					<div class="tab-pane fade show active" id="webdev" role="tabpanel" aria-labelledby="webdev">
-						<h4 class="pane-title">Web development</h4>
-						<div class="tab-pane-cols">
-						<span><a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="Key language used to specify what's to go on a webpage (images, text, etc.)">HTML</a></span>
-						<span><a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="Key web style-setting language">CSS</a></span>
-						<span><a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="Key language used to add interactive features to a website">JavaScript</a></span>
-						<span><a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="Helps me add well-formatted websites features (like the slideshows and foldout tabs seen on this page!)">Bootstrap</a></span>
-						<span><a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="Helps programmers write JavaScript instructions in (relative) plainspeak">jQuery</a></span>
-						<span><a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="JavaScript toolkit for building more complex apps">React</a></span>
-						<p>Template-based web design</p></div>
-					</div>
+	<div>
+	<div id="work3">
 
-					<div class="tab-pane fade" id="data-analysis" role="tabpanel" aria-labelledby="data-analysis">
-						<h4 class="pane-title">Data analysis</h4>
-						<div class="tab-pane-cols">
-						<p>Data visualisation</p>
-						<p>Data storytelling</p>
-						<p>Python programming</p>
-						<span><a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="Programming kit for customising charts (like the ones featured on this page)">D3</a></div></span>
-					</div>
-
-					<div class="tab-pane fade" id="content" role="tabpanel" aria-labelledby="content">
-						<h4 class="pane-title">Content creation</h4>
-						<div class="tab-pane-cols">
-						<span><a data-bs-trigger="focus" tabindex="0" data-bs-toggle="popover" data-bs-content="Helps me make copywriting decisions that get you to the top of search engine results">SEO optimisation</a></span>
-						<p>Article writing</p>
-						<p><a href="https://www.studentdoctor.net/author/gloria-onwuneme/" target="_blank">Interviewing</a></p>
-						<p>Research</p>
-						<p>Content curation</p></div>
-					</div>
-					</div>
-				</div>
+		<div class="sample-desc work-focus">
+			<div>	
+				<h3>TranslatorTools - everything you need as a new translator</h3>
+				<p>After getting a <a href="https://www.amazon.co.uk/Life-Every-Breath-Reporter-Adventurer-ebook/dp/B09LV9GXSS" target="_blank">translation published by Amazon Crossing</a> in 2022, I created an online resource library for new and aspiring translators. More recently, I've also started offering web design services to translators.</p>
 			</div>
+
+			<button class="sample-btn tools-btn">Tools used</button>
+			<a class="sample-btn" href="https://www.translatortools.org/" target="_blank">Visit translatortools.org</a>
+			<div class="sample-tools"><h4>Tools used</h4><p>Squarespace</p><p>HTML and CSS</p><p>Content curation</p><button class="tools-close-btn"></button></div>
+		</div>
+
+
+	</div>
+	</div>
+
+	<div>
+	<div id="work4">
+
+		<div class="sample-desc work-focus">
+			<div>
+				<h3>Click-to-Select - browser extension that simplifies text selection</h3>
+				<p>I created Click-to-Select from scratch as an alternative for anyone who finds drag-and-drop text selection janky and frustrating. While's it's currently being reviewed by the <a href="https://chromewebstore.google.com" target="_blank">Chrome Web Store</a>, I've created and launched an online demo of how it works.</p>
+			</div>
+			<button class="sample-btn tools-btn">Tools used</button>
+			<a class="sample-btn" href="https://click-to-select.com" target="_blank">Visit click-to-select.com</a>
+			<div class="sample-tools">
+				<h4>Tools used</h4>
+				<p>HTML, CSS, and JavaScript to create the extension from scratch, and to create the demo available at <a href="https://click-to-select.com" target="_blank">click-to-select.com</a></p>
+				<p>Squarespace to host the demo website</p>
+				<button class="tools-close-btn"></button>
+			</div>
+		</div>
+
+	</div>
+	</div>
+
+	<div>
+	<div id="work5">
+	
+		<div class="sample-desc work-focus">
+			<div>
+				<h3>Interactive data visualisations</h3>
+				<p><a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> has been a huge help in my journey as a self-taught designer and developer. As part of the course, I created a collection of interactive data charts and maps using the <a href="https://d3js.org/" target="_blank">D3 library</a>.</p>
+			</div>
+			<button class="sample-btn tools-btn">Tools used</button>
+			<a class="sample-btn" href="https://codepen.io/collection/rxgeoE" target="_blank" target="_blank">See collection</a>
+			<div class="sample-tools"><h4>Tools used</h4><p>HTML, CSS, and JavaScript</p><p>Bootstrap, a library of commonly-used website components</p><p>D3 library</p>
+			<button class="tools-close-btn"></button></div>
 		</div>
 	</div>
+	</div>
+</div>
+
+
+<button class="control-btn left" id="carousel-left"></button>
+<button class="control-btn right" id="carousel-right"></button>
+
+<div id="indicator-buttons" class="fade-in">
+<!----><button></button>
+<button></button>
+<button></button>
+<button></button>
+<button></button>
+</div>
+
 </section>
 
-<div class="hrdiv"></div>
+<section id="about">
+<h2 class="fade-in">About Me</h2>
 
-<section id="aboutme">
+<div id="about-grid">
+	<div class="fade-in">
+		<img src="imgs/GloriaNneomaOnwuneme.webp" alt="photo of Gloria Nneoma Onwuneme"/>
 
-	        <h2>About Me</h2>
-		<p>I'm a Danish-born Nigerian, former doctor and translator, and aspiring web developer/designer. </p><p>Since launching my first-ever website on Squarespace and coding a <a href="https://www.nngroup.com/articles/back-to-top/" target="_blank">back-to-top button</a> from scratch, I've chased the thrill and joy of creating engaging and impactful online experiences.</p>
-		<p>Outside of web development:</p>
+		<div><p>I'm a Danish-born Nigerian, former doctor and translator, and web developer/designer.</p><p>Since launching my first-ever website on Squarespace and coding a <a href="https://www.nngroup.com/articles/back-to-top/" target="_blank" style="color: white;">back-to-top button</a> from scratch, I've chased the thrill and joy of creating engaging and impactful online experiences.</p></div>
+	</div>
 
-		<article id="milestones">
+	<div class="fade-in" id="professional-ctn">
+		<div id="professional-grid">
+			<div><img src="icons/vital_signs.svg" alt=""><p>I've worked as a doctor in public UK hospitals and private industry, delivering frontline care and engaging in clinical research.</p></div>
+			<div><img src="icons/translate.svg" alt=""><p>I had the privilege of translating a biography about <a href="https://www.amazon.co.uk/Life-Every-Breath-Reporter-Adventurer-ebook/dp/B09LV9GXSS" target="_blank">Ester Blenda Nordström</a> from Swedish to English, which was published by Amazon Crossing in 2022.</p></div>
+			<div><img src="icons/devices.svg" alt=""><p>Ok, back to web-dev real quick: In 2023, I launched my first website, an online resource library for new and experienced translators. Since then, I've completed courses in responsive web design and data analysis.</p></div>
+		</div>
+
+		<button class="about-close-btn"><span></span>Aside from building websites...</button>
+	</div>
 
 
-			<div class="row" id="cvgrid">
-				<div class="col-4">
-					<div class="list-group" role="tablist">
-						<a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#list-medicine" role="tab" aria-controls="list-medicine"><span class="material-symbols-outlined">vital_signs</span><span class="tab-title">Medicine</span></a>
-						<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#list-translation" role="tab" aria-controls="list-translation"><span class="material-symbols-outlined">translate</span><span class="tab-title">Translation</span></a>
-						<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#list-content" role="tab" aria-controls="list-webdesign"><span class="material-symbols-outlined">computer</span><span class="tab-title">Content creation</span></a>
-					</div>
-				</div>
+	<div class="fade-in" id="personal-ctn">
 
-				<div class="col-8">
-					<div class="tab-content" id="cvgroup">
-					<div class="tab-pane fade show active" id="list-medicine" role="tabpanel" aria-labelledby="medicine">
-						<h5 class="pane-title">Medicine</h5>
-						<p>I've worked as a doctor in public UK hospitals and private industry, delivering frontline care and engaging in clinical research.</p>
-					</div>
-					<div class="tab-pane fade" id="list-translation" role="tabpanel" aria-labelledby="data-analysis">
-						<h5 class="pane-title">Translation</h5>
-						<p>I had the privilege of <a href="https://www.amazon.co.uk/Life-Every-Breath-Reporter-Adventurer-ebook/dp/B09LV9GXSS" target="_blank">translating a biography</a> about <a href="https://nordicwomensliterature.net/writers/nordstrom-ester-blenda-elisabeth/" target="_blank">Ester Blenda Nordstrom</a> from Swedish to English, which was published by Amazon Crossing in 2022.</p>
-					</div>
-					<div class="tab-pane fade" id="list-content" role="tabpanel" aria-labelledby="content">
-						<h5 class="pane-title">Web design</h5>
-						<p><i>Ok</i>, back to web-dev real quick: In 2023, I launched <a href="https://www.translatortools.org" target="_blank">my first website</a>, an online resource library for new and experienced translators.</p>	
-						<p>Since then, I've completed courses in responsive web design and data analysis.</p>
-					</div>
-					</div>
-				</div>
-			</div>
+		<div id="personal-grid">
+			<div><img src="icons/cookie.svg" alt=""><p>I'm a keen baker, and have taken to making at least one batch of cookies (or a cake) per week...</p></div>
+			<div><img src="icons/exercise.svg" alt=""><p>...which is why I've deemed it necessary to take up a consistent Pilates practice. For an accurate primer on Pilates, please watch this <a href="https://www.youtube.com/watch?v=MJZsVpXZmKw" target="_blank">3-minute informational video</a>.</p></div>
+			<div><img src="icons/book_5.svg" alt=""><p>I enjoy non-fiction books written by compelling stylists, with topics ranging from authors' lives to anything Brené Brown has to say.</p></div>
+		</div>
+		<button class="about-close-btn"><span></span>Outside of work...</button>
 
-			<div class="row" id="personalgrid">
-				<div class="col-4">
-					<div class="list-group" role="tablist">
-						<a class="list-group-item list-group-item-action active" id="webdev" data-bs-toggle="list" href="#list-baking" role="tab" aria-controls="list-baking"><span class="material-symbols-outlined">cookie</span><span class="tab-title">Baking</span></a>
-						<a class="list-group-item list-group-item-action" id="data-analysis" data-bs-toggle="list" href="#list-fitness" role="tab" aria-controls="list-fitness"><span class="material-symbols-outlined">exercise</span><span class="tab-title">Personal fitness</span></a>
-						<a class="list-group-item list-group-item-action" id="content" data-bs-toggle="list" href="#list-literature" role="tab" aria-controls="list-literature"><span class="material-symbols-outlined">book_5</span><span class="tab-title">Literature</span></a>
-					</div>
-				</div>
+	</div>
 
-				<div class="col-8">
-					<div class="tab-content" id="personalgroup">
-					<div class="tab-pane fade show active" id="list-baking" role="tabpanel" aria-labelledby="baking">
-						<h5 class="pane-title">Baking</h5>
-						<p>I'm a keen baker, and have taken to making at least one batch of cookies (or a cake) per week...</p>
-					</div>
-					<div class="tab-pane fade" id="list-fitness" role="tabpanel" aria-labelledby="personal-fitness">
-						<h5 class="pane-title">Personal fitness</h5>
-						<p>...which is why I've deemed it necessary to take up a consistent Pilates practice. For an accurate primer on Pilates, please watch this <a href="https://www.youtube.com/watch?v=MJZsVpXZmKw" alt="saturday night live skit on pilates" target="_blank">3-minute informational video</a>.</p>
-					</div>
-					<div class="tab-pane fade" id="list-literature" role="tabpanel" aria-labelledby="literature">
-						<h5 class="pane-title">Literature</h5>
-						<p>I enjoy non-fiction books written by compelling stylists, with topics ranging from authors' lives to anything Brené Brown has to say.</p>
-					</div>
-					</div>
-				</div>
-			</div>
 
-		</article>
+</div>
+
 </section>
 
-<div class="hrdiv"></div>
- 
 <section id="contact">
+	<h2 class="fade-in">Contact</h2>
 
+
+<div id="contact-grid">
 	<div>
-		<p>Like what you've seen so far?</p>
-		<h3>Then let's talk!</h3>
-		<a class="email-btn" role="button" href="mailto:gn.onwuneme@yahoo.com" target="_blank"><button class="btn btn-primary"><span class="material-symbols-outlined">content_copy</span>Copy email</button></a>
+	<img class="fade-in" src="imgs/contact-photo-GloriaNOnwuneme.jpg" alt="">
+	<div id="membership" class="fade-in">
+	<p>Gloria Nneoma Onwuneme is a</p>
+	<a href="https://www.squarespace.com" target="_blank"><img src="icons/circle-member.png" alt="Visit Squarespace.com to learn more about Squarespace Circle web designers"/></a>
+	<hr style="margin: 1rem auto;">
+	<p>Learn more about why you should hire a Squarespace Circle Member for your next web design project <a href="https://pros.squarespace.com/blog/work-with-a-circle-member" target="_blank">here</a>.</p>
+	</div>
 
 	</div>
 
 	<div>
+	<div id="contact-btns" class="fade-in">
+		<div>
+		<p>Get in touch if you:</p>
+		<ul>
+			<li>Need help creating or redesigning your website</li>
+		
+	<li>Require other web content services</li>
+		</ul>
+		</div>
+		<a href="mailto:gloria@translatortools.org" class="email-btn">Copy email</a>
 
-		<div class="contact-demo-frame">
-			<div id="contact-demo4" class="contact-demo">
-				<div class="carousel-ctn active">
-					<img loading="lazy" src="https://github.com/user-attachments/assets/6dcfe5d5-b2fe-4af9-b7b6-fb347460c4f1" alt="translatortools landing page" style="transform: translate(5%,-22%);">
-				</div>
+		<a href="https://www.translatortools.org/web-design-form" target="_blank">Request web design services</a>
 
+		<div>
+			<p id="socials-heading">Connect on:</p>
+			<div>
+			<div id="socials">
+				<a href="https://x.com/GloriaNOnwuneme" target="_blank" style="background: url('icons/x.svg'); background-size: 100%;"></a>
+				<a href="https://github.com/GloriaNOnwuneme" target="_blank" style="background: url('icons/github-mark-white.svg'), linear-gradient(to right, black, black); background-size: 100%;"></a>
+				<a href="https://codepen.io/gnonwuneme/" target="_blank" style="background: url('icons/codepen-white.svg'), linear-gradient(to right, black, black); background-size: 100%;"></a>
+			</div>
 			</div>
 		</div>
-
-		<div class="contact-demo-frame">
-			<div id="contact-demo1" class="contact-demo">
-				<div class="carousel-ctn active">
-					<img loading="eager" src="https://github.com/user-attachments/assets/8cc108ec-4826-44cb-998d-f49c2ef227e5" alt="webpage showing how px speedreading method works" style="transform: translate(-2%,-2%);">
-				</div>
-			</div>
-		</div>
-
-		<div class="contact-demo-frame">
-			<div id="contact-demo2" class="contact-demo">
-				<div class="carousel-ctn active">
-					<img loading="eager" src="https://github.com/user-attachments/assets/9224d719-3cc9-4cb2-a81c-4647903cab9c" alt="click-to-select.com landing page" style="max-inline-size: 160%; transform: translate(-32%, -15%);">
-				</div>
-			</div>
-		</div>
-
-		<div class="contact-demo-frame">
-			<div id="contact-demo3" class="contact-demo">
-				<div class="carousel-ctn active">
-					<img loading="eager" src="https://github.com/user-attachments/assets/78b8d2b6-256d-462a-97de-ba3013d3bef3" alt="instructions on how to navigate interactive treemap visualisation" style="max-inline-size: 170%; transform: translate(-10%,-4%);">
-				</div>
-			</div>
-		</div>
-
 	</div>
-
+	</div>
+</div>
 
 </section>
 
-</main>
+
+
+<div id="attr-modal">
+	<div>
+	<button></button>
+	<h2>This website uses:</h2>
+	<p><a href="https://fonts.google.com/icons" target="_blank">Google Icons</a></p>
+	<p>Responsive web design tips shared on  <a href="https://stackoverflow.com/a/4617920" target="_blank">Stack Overflow</a></p>
+	</div>
+</div>
 
 
 <footer>
-<p>Gloria Nneoma Onwuneme. &copy; 2024</p>
-
-<ul class="nav flex-lg-column" id="socials">
-  <li class="nav-item social-link" style="background:url('https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?w=740&t=st=1720691799~exp=1720692399~hmac=dd3bcee6f8d40f73ec9c27897599f49b5dc814c32b2130f450488bebb6496167'); background-size: 90% auto; background-position: center;"  data-bs-toggle="tooltip" data-bs-title="Say hi on X!">
-    <a class="nav-link" aria-current="page" href="https://x.com/GloriaNOnwuneme" target="_blank"></a>
-  </li>
-  <li class="nav-item social-link" style="background: url('https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'), linear-gradient(black, black); filter: invert(100%); background-size: 90% auto; background-position: center;" data-bs-toggle="tooltip" data-bs-title="Say hi on GitHub!">
-    <a class="nav-link" href="https://github.com/GloriaNOnwuneme" target="_blank"></a>
-  </li>
-  <li class="nav-item social-link" style="background: black;" data-bs-toggle="tooltip" data-bs-title="Say hi on Codepen!">
-	<span style="display: block; height: 100%; aspect-ratio: 1/1; background:url('https://blog.codepen.io/wp-content/uploads/2023/09/logo-white.png'), linear-gradient(black, black); background-size: 80% auto; background-position: center; background-repeat: no-repeat;">
-    <a class="nav-link" href="https://codepen.io/gnonwuneme" target="_blank"></a>
-	</span>
-  </li>
-</ul>
-
+<p>&copy; Gloria Nneoma Onwuneme <span id="copyright-year"></span></p>
+<button id="attr-btn">Acknowledgements</button>
+<a href="https://translatortools.org" target="_blank">Privacy policy</a>
 </footer>
 
-<script>
-
-	const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-	const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {boundary: document.body}));
-
-
-
-	const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-	const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-
-	const vhSetter = () => {
-		let vh = window.innerHeight * 0.01;
-		document.querySelector(":root").style.setProperty("--vh", `${vh}px`);
-	}
-
-
-
-	const copyEmail = (e) => {
-		event.preventDefault();
-		let text = e.target.href.replace('mailto:', '');
-		navigator.clipboard.writeText(text)
-		.then(navigator.clipboard.readText());
-	}
-
-	document.querySelectorAll(".email-btn").forEach(btn => btn.addEventListener("click", copyEmail));
-
-
-	let headers = document.querySelectorAll("#worksamples .accordion-header");
-	let btns = document.querySelectorAll("#worksamples .accordion-button");
-	let workcontent = document.querySelectorAll("#worksamples .accordion-collapse");
-
-	let socials = document.querySelector("#socials");
-
-	function getBtnWidths() {
-		let headerWidths = 0;
-		for (let i=0; i< Array.from(headers).length; i++) {
-			headerWidths += headers[i].getBoundingClientRect().width;
-		}
-		return headerWidths;
-	}
-
-	document.body.onload = () => document.querySelector(":root").style.setProperty("--bw", `${getBtnWidths()}px`);
-
-	window.onscroll = () => {
-		socials.getBoundingClientRect().top < document.querySelector("section").getBoundingClientRect().bottom ? socials.classList.remove("socials-scroll") : socials.classList.add("socials-scroll");
-	
-	}
-
-	let tabOpen = [null, null];
-
-	window.addEventListener("resize", () => {
-		vhSetter();
-		if (tabOpen[1]) {
-			workcontent[tabOpen[1]].classList.remove("show");
-			btns[tabOpen[1]].classList.add("collapsed");
-			btns[tabOpen[1]].setAttribute("aria-expanded", "false");
-			workcontents(!tabOpen[0]);
-		}
-
-		if (document.querySelector("#mobile-menu").classList.contains("show") && !window.matchMedia("(max-width: 950px)").matches) {
-
-			document.querySelector("#mobile-menu").classList.remove("show");
-		}
-
-
-		
-	})
-
-	document.querySelector("#worksamples").addEventListener("click", () => {
-		
-		let anyOpen = false;
-		for (let i=0; i < Array.from(btns).length; i++) {
-			if (!btns[i].classList.contains("collapsed")) {
-				anyOpen = true;
-				tabOpen[1] = i;
-				console.log(tabOpen);
-				break;
-			}		
-		}
-		tabOpen[0]=anyOpen;
-
-		workcontents(anyOpen);
-
-	});
-
-	const workcontents = (x) => {
-		setTimeout(() => {
-			if (!window.matchMedia("(max-width: 850px)").matches) {
-			document.querySelector("#sampleprompt").style.opacity = x ? 0 : 1;}
-		}, 200);
-	}
-
-	
-	const contactDemos = document.querySelectorAll(".contact-demo");
-
-	if (window.matchMedia("(prefers-reduced-motion)").matches) {
-		for (let i = 0; i < Array.from(contactDemos).length; i++) {
-			contactDemos[i].children[0].setAttribute("data-bs-ride", "false");
-		}
-	}
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
 </html>
