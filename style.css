@@ -33,7 +33,7 @@ header {
 	justify-content: space-between;
 	opacity: 0;
 	transition: visibility 500ms 500ms, top 500ms, opacity 500ms;
-	& a:nth-of-type(2) {position: absolute; top: 50%; right: 50%; transform: translate(45%, -50%) scale(.9);}
+	& > a:nth-of-type(2) {position: absolute; top: 50%; right: 50%; transform: translate(45%, -50%) scale(.9);}
 }
 
 .header-appear {visibility: visible; top: 0; opacity: 1; transition: top 500ms, opacity 500ms, visibility 500ms;}
