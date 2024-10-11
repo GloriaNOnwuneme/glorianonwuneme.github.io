@@ -11,6 +11,24 @@ body {width: 100%; position: relative; min-width: 300px; max-width: 100%; font-f
 
 body {scroll-snap-type: y mandatory !important; min-width: 300px;}
 html {width: 100%; min-width: 300px;}
+
+#loading-div {
+	display: grid;
+	position: fixed;
+	z-index: 20000 !important;
+
+	place-content: center;
+
+	background: radial-gradient(white, grey, black);
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	transition: opacity 200ms !important;
+}
+
+.remove-div {opacity: 0;}
+
 button {cursor: pointer;}
 a {color: black;}
 
@@ -40,7 +58,6 @@ header {
 
 header a {font-size: 1.7rem; display: flex; align-items: center; text-decoration: none; color: black;}
 
-#loading-div {display: none;}
 
 nav {
 	display: block;
@@ -174,8 +191,8 @@ section:not(:first-of-type) {scroll-margin-top: 4rem; /*scroll-snap-align: start
 #work1 {background: linear-gradient(to right, rgba(0,0,0,0) 80%, rgba(0,0,0,.7)), url('screenshots/redesign/german-to-english-pc.webp'); background-position: center top;}
 #work2 {background: linear-gradient(to right, transparent, rgba(0,0,0,.7)), url('screenshots/px/game-pc-3.webp');}
 #work3 {background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,.7)), url('screenshots/tt/work-pc.webp'); background-position: center 35%;}
-/*#work4 {background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,.7)), url('screenshots/cts/landing-pc-2.webp');}*/
-#work4 {background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,.7)), url('screenshots/dataviz/viz-pc-3.webp');}
+#work4 {background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,.7)), url('screenshots/cts/landing-pc-2.webp');}
+#work5 {background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,.7)), url('screenshots/dataviz/viz-pc-3.webp');}
 
 #skills, #about, #contact {padding: 3rem 3rem 5rem;}
 
@@ -398,8 +415,8 @@ footer a {filter: invert(100%);}
 #work1 {background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)), url('screenshots/redesign/german-to-english-mobile.webp');}
 #work2 {background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)), url('screenshots/px/game-mobile-4.webp'); background-position: center 5%;}
 #work3 {background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)), url('screenshots/tt/landing-mobile.webp'); background-position: center 20%;}
-/*#work4 {background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)), url('screenshots/cts/landing-mobile-2.webp'); background-position: center top;}*/
-#work4 {background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)), url('screenshots/dataviz/viz-pc-2.webp'); background-position: center 10%;}
+#work4 {background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)), url('screenshots/cts/landing-mobile-2.webp'); background-position: center top;}
+#work5 {background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)), url('screenshots/dataviz/viz-pc-2.webp'); background-position: center 10%;}
 
 #indicator-buttons {display: none;}
 #about-grid > div:first-of-type {grid-auto-flow: unset; column-gap: 0px; /* may need to delete this*/}
