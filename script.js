@@ -1,3 +1,16 @@
+/**/	document.onreadystatechange = () => {
+
+
+		if (document.readyState == "complete") {
+			if (document.querySelector('#loading-div')) {
+				document.querySelector('#loading-div').classList.add("remove-div");
+				setTimeout(() => {document.querySelector("#loading-div").remove()}, 200);
+			}
+		}
+	}
+
+
+
 	const copyEmail = (e) => {
 		event.preventDefault();
 		let text = e.target.href.replace('mailto:', '');
@@ -139,7 +152,7 @@ const scrollerBtn = (e) => {
 	let carousel = e.target.parentElement.querySelector(".carousel");
 	let slideWidth = Array.from(carousel.children)[0].getBoundingClientRect().width;
 
-	if (e.target.classList.contains("left")) {carousel.scrollBy(-.75*slideWidth, 0);} else {carousel.scrollBy(.75*slideWidth,0);}
+	if (e.target.classList.contains("left")) {carousel.scrollBy(-slideWidth, 0);} else {carousel.scrollBy(slideWidth,0);}
 }
 
 Array.from(document.querySelector("#nav-scroller").parentElement.querySelectorAll(".control-btn")).forEach(btn => btn.addEventListener("click", scrollerBtn));
@@ -230,7 +243,42 @@ const arr = {
 };
 
 
+/*
 
+
+
+const scrollSpy = () => {
+ let viewed = sections.filter( section => section.getBoundingClientRect().top >= 0 && section.getBoundingClientRect().top <= window.innerHeight) || 
+(section.getBoundingClientRect().bottom >= 0 && section.getBoundingClientRect().bottom <= window.innerHeight) || (section.getBoundingClientRect().top <= 0 && section.getBoundingClientRect().bottom >= window.innerHeight);
+
+
+if (viewed.includes(sections.at(-1)) {}
+	if contact is >40% intersecting
+		=> focus contact
+else
+	=>focus section taking up most of viewport
+	(calc (via window.inner - top if > 0 - bottom if > 0 / window.inner) => choose max, then creating list that matches max-ratio, then choosing last el in this list)
+
+}
+
+*/
+
+let sections = Array.from(document.querySelectorAll("section:not(:first-of-type)"));
+
+function showCurrentNav() {
+		let sectionTops = [];
+		sections.forEach(section => {sectionTops.push(Math.abs(section.getBoundingClientRect().top) )} );
+
+	
+		return sectionTops.indexOf(Math.min(...sectionTops));
+	}
+
+const scrollSpy = () => {
+	if (sections.at(-1).getBoundingClientRect().bottom < window.innerHeight) {Array.from(document.querySelector("#nav-scroller").children).at(-1).scrollIntoView();} else {Array.from(document.querySelector("#nav-scroller").children)[showCurrentNav()].scrollIntoView();}
+}
+
+window.addEventListener('scrollend', scrollSpy);
+window.addEventListener('load', scrollSpy);
+window.addEventListener('resize', scrollSpy);
 
 document.querySelector("#copyright-year").textContent = new Date(Date.now()).getFullYear();
-
