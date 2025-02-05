@@ -159,7 +159,7 @@ nav > button {
 
 
 
-#hero-div {display: grid; gap: 2.5rem; grid-template-areas: 'hero-text hero-text' 'btn1 btn2'; width: 500px; text-align: center; opacity: 0; transform: translateY(500px); opacity: 0; animation: heroAppear linear 1000ms; animation-fill-mode: forwards; color: white;}
+#hero-div {display: grid; gap: 2.5rem; grid-template-areas: 'hero-text hero-text' 'btn1 btn1'; width: 500px; text-align: center; opacity: 0; transform: translateY(500px); opacity: 0; animation: heroAppear linear 1000ms; animation-fill-mode: forwards; color: white;}
 
 @keyframes heroAppear {
 	0% {transform: translateY(100%); opacity: 0;}
@@ -171,7 +171,6 @@ nav > button {
 #hero-div > div {grid-area: hero-text;}
 #hero-div > a {display: grid; height: 3rem; border-radius: 1.5rem; background: rgba(255,255,255,.8); place-content: center; text-decoration: none;}
 #hero-div > a:first-of-type {grid-area: btn1;}
-#hero-div > a:last-of-type {grid-area: btn2;}
 
 section {display: block; overflow: hidden; width: 100%; position: relative; &:not(:last-of-type) {min-height: calc(100vh - 4rem);}}
 
@@ -368,7 +367,7 @@ footer a {filter: invert(100%);}
 
 @media (max-width: 800px) {
 
-	#hero-div {grid-template-areas: 'hero-text' 'btn1' 'btn2'; width: 100%;}
+	#hero-div {grid-template-areas: 'hero-text' 'btn1'; width: 100%;}
 
 	section {scroll-margin-top: unset !important;}
 	#carousel-ctn > div {justify-content: unset; align-items: end;}
