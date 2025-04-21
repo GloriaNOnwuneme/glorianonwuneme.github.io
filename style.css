@@ -198,7 +198,7 @@ section:not(:first-of-type) {scroll-margin-top: 4rem; /*scroll-snap-align: start
 section h2 {position: absolute; top: -4rem; right: 50% !important; transform: translate(50%) !important; text-align: center; background: white; box-shadow: inset 0px 2px 2px rgba(0,0,0,.4), 0px 4px 2px rgba(0,0,0,.4); z-index: 100; padding: .5rem; transition: opacity 500ms, top 500ms; opacity: 0;}
 
 
-.sample-desc {display: grid; position: relative; width: 400px; row-gap: .3rem; transform: translateY(150%); overflow: hidden; opacity: 0; transition: opacity 500ms, transform 700ms; visibility: hidden;}
+.sample-desc {white-space: normal; display: grid; position: relative; width: 400px; row-gap: .3rem; transform: translateY(150%); overflow: hidden; opacity: 0; transition: opacity 500ms, transform 700ms; visibility: hidden;}
 
 .sample-desc *:not(h3) {font-size: 1rem;}
 .sample-desc h3 {margin-bottom: .5rem;}
