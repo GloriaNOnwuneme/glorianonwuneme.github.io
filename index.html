@@ -3,11 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Gloria N. Onwuneme: Portfolio</title>
-	<link href="logo.png" rel="icon" sizes="100x100" type="image/png">
-	<meta name='impact-site-verification' value='2c69d130-9776-4890-a495-51abfe1db3af'>
-	<link href="style.css" rel="stylesheet" />
-	
+    <title>Gloria N. Onwuneme: Web Designer/Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="imgs/logo.png" rel="icon" sizes="100x100" type="image/png">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+    <link href="style.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 
 
@@ -15,382 +21,385 @@
 
 <body>
 
-<div id="loading-div">
-<svg width="40" height="40" version="1.1" xmlns="http://www.w3.org/2000/svg">
-
-<g transform="scale(.1)">
-	<circle cx="200" cy="200" r="180" stroke-width="30" stroke="black" fill="none"/>
-	<path d="M200,200 L 320 200 A 120,120 0 1,1 284.8528,115.1472" stroke="black" fill="none" stroke-width="40"/>
- <animate attributeName="opacity" 
- values="0;1;0" dur="2" repeatCount="indefinite"/>
-
-  </g>
-</svg>
-</div>
-
-
-<header>
-	<a href="#"><img src="logo.svg" width="50" height="50" style="overflow: hidden;" /><span>loria N. Onwuneme</span></a>
-
-	<a href="https://www.paypal.com/donate/?hosted_button_id=JX9ZS2RWZWG5Q" target="_blank" title="Buy me a coffee!"><img height="48" width="48" src="icons/glass_cup.svg" alt=""></a>
-	<nav id="nav-ctn">
-
-		<div class="carousel" id="nav-scroller">
-		<div>
-			<p><a href="#skills">Skills & services</a></p>
-		</div>
-		<div>
-			<p><a href="#work">Work</a></p>
-		</div>
-		<div>
-			<p><a href="#about">About</a></p>
-		</div>
-		<div>
-			<p><a href="#contact">Contact</a></p>
-		</div>
-		</div>
-
-		<button class="control-btn left"></button>
-		<button class="control-btn right"></button>
-	</nav>
+<header id="header-nav">
+    <a href="#" id="home-button"></a>
+    <button id="hamburger-button" class="hamburger-menu">
+        <span class="bar top-bar"></span>
+        <span class="bar mid-bar"></span>
+        <span class="bar bottom-bar"></span>
+    </button>
+    <nav id="nav-links-container">
+        <a class="nav-link invert-btn invert-btn-motif invert-btn-white bottom-left" href="#projects">Projects</a>
+        <a class="nav-link invert-btn invert-btn-motif invert-btn-white top-right" href="#work-process">Process</a>
+        <a class="nav-link invert-btn invert-btn-motif invert-btn-white top-left" href="#skills-services">Skills & Services</a>
+        <a class="nav-link invert-btn invert-btn-motif invert-btn-white" href="#about">About Gloria</a>
+        <a href="mailto:gn.onwuneme@yahoo.com" class="nav-link invert-btn invert-btn-motif invert-btn-black top-left email-link">Contact</a>
+    </nav>
 </header>
 
+<div id="popup" class="popup">
+    Email copied
+</div>
+<div id="email-error-popup" class="popup">
+    Right-click to copy email!
+</div>
 
-<section id="hero-header" style="height:100vh;" class="hero1">
-	<div id="hero-filter" style="position: absolute; height: 100%; width: 100%; top: 0; right: 0; left: 0;"></div>
+    <main>  
 
-	<div id="hero-div">
+        <div id="homepage">
+            <div class="entry-fade">
+                <h1>[GLORIA N. ONWUNEME]</h1>
+                <p class="medium-text subtitle" id="profile-tag"><em style="font-size: 80%;">Front-end web designer/developer</em></p>
+                <p class="medium-text">I'm passionate about <strong>transforming complex information into engaging, easy-to-understand online experiences</strong> that highlight the true value of your product or service for your audience.</p>
+<article class="testimonial">
+                <blockquote>[Gloria] has a unique skillset that combines visual and linguistic creativity with technical know-how and, crucially, effective communication and project management.</blockquote>
+                <p class="testimonial-source">Ruth Martin<br><span class="subtitle">German-to-English literary translator</span></p>
+</article>
+            </div>
+            <div id="homepage-nav" class="entry-fade">
+                <a class="nav-link invert-btn invert-btn-motif invert-btn-white bottom-left entry-fade" href="#projects">Projects</a>
+                <a class="nav-link invert-btn invert-btn-motif invert-btn-white top-right entry-fade" href="#work-process">Process</a>
+                <a class="nav-link invert-btn invert-btn-motif invert-btn-white top-left entry-fade" href="#skills-services">Skills & Services</a>
+                <a class="nav-link invert-btn invert-btn-motif invert-btn-white entry-fade" href="#about">About Gloria</a>
+                <a href="mailto:gn.onwuneme@yahoo.com" class="nav-link invert-btn invert-btn-motif invert-btn-black top-left email-link">Contact</a>
 
-		<div>
-			<h1>Gloria Nneoma Onwuneme</h1>
-			<p>As a web developer and designer, my goal is to make sure that your audience and clients understand why and how you and your creative offering are of value.</p>
-		</div>
+            </div>            
+        </div>
 
-		<a href="mailto:gn.onwuneme@yahoo.com" class="email-btn">Copy email</a>
-		<!--
-		<a href="https://www.translatortools.org/web-design-form" target="_blank">Request web design services</a>
-		-->
-	</div>
 
+
+
+<section id="projects" class="home-state">
+    <h2 class="entry-fade">Projects</h2>
+    <div id="projects-grid">
+        <div id="projects-nav">
+            <button class="invert-btn invert-btn-white invert-btn-motif bottom-left active entry-fade" data-control-btn="projects-slide-1">Web Design for Creatives
+</button>
+            <button class="invert-btn invert-btn-white invert-btn-motif entry-fade" data-control-btn="projects-slide-2">Browser Plugin Development</button>
+            <button class="invert-btn invert-btn-white invert-btn-motif top-left entry-fade" data-control-btn="projects-slide-3">WordPress Blog Creation</button>
+
+            </div>
+
+
+<div class="projects-slide entry-fade show" id="projects-slide-1">
+    <figure class="projects-figure entry-fade">
+        <img class="projects-img-landscape" src="imgs/german-to-english-translation.org_publications.png" alt="Screenshot of German-to-English.org website">
+        <img class="projects-img-portrait" src="imgs/german-to-english-translation.org_publications_portrait.png" alt="Screenshot of German-to-English.org website">
+        <div>
+            <a href="https://web.archive.org/web/20230501120753/https://www.german-to-english-translation.org/" target="_blank" class="invert-btn invert-btn-white">Before redesign</a>
+
+            <a href="https://german-to-english-translation.org/" target="_blank" class="invert-btn invert-btn-white">See live</a>
+        </div>
+    </figure>
+
+    <h3 class="project-title entry-fade">Web Design for Creatives: Ruth Martin</h3>
+    <p class="entry-fade"><strong>Launched: </strong>August 2024</p>
+    <div>
+        <p class="project-description medium-text entry-fade">I had the joy of redesigning <a class="intext-link" href="https://german-to-english-translation.org" target="_blank">german-to-english-translation.org</a> for award-winning translator Ruth Martin. My focus was on reorganising her extensive service offerings and client testimonials, <strong>ensuring potential clients could quickly recognise and appreciate her expertise and value.</strong></p>
+        <p class="project-description medium-text entry-fade">We worked together in the months leading up to the publication of Ruth's translation of <a href="https://www.panmacmillan.com/authors/angela-merkel/freedom/9781035020751" target="_blank" class="intext-link"><i>Freedom</i></a>, the memoirs of former German Chancellor Angela Merkel. As she was attending to final revision deadlines, <strong>I made sure to implement clear feedback tools and systems</strong>. This meant (1) using Google Meet for discussions, (2) keeping communications as focussed and efficient as possible, and (3) sharing interim website demos for review. I also provided a thorough training session on how to independently and easily update her brand-new Squarespace website at the end of our collaboration.</p>
+        <p class="project-description medium-text entry-fade">In <strong>prioritising partnership, I stayed flexible and sensitive to my client's schedule</strong>, adjusting phase delivery timelines as needed, while ensuring that key project goals were still met.</p>
+
+    </div>
+
+    <div class="focus-box-ctn entry-fade">
+        <article>
+            <h4>Tools used:</h4>
+            <div class="focus-box">
+                <p>
+                    <span class="projects-tool">Squarespace</span>
+                    <span class="projects-tool-use subtitle">[content management + website build]</span>
+                </p>
+                <p>
+                    <span class="projects-tool">Google Workspace</span>
+                    <span class="projects-tool-use subtitle">[project management]</span>
+                </p>
+                <p>
+                    <span class="projects-tool">HTML, CSS, and JavaScript</span>
+                </p>
+
+            </div>
+        </article>
+    </div>
+
+    <article class="testimonial entry-fade">
+        <blockquote>I have been incredibly impressed with [Gloria's] work. She has a unique skillset that combines visual and linguistic creativity with technical know-how and, crucially, effective communication and project management [...] At every stage of the process, she was responsive, flexible, and quick to incorporate feedback.</blockquote>
+        <p class="testimonial-source">Ruth Martin<br><span class="subtitle">German-to-English literary translator</span></p>
+    </article>
+    <div class="projects-slide-btt-ctn entry-fade">
+        <a href="#projects" class="invert-btn invert-btn-white projects-slide-btt">See all projects</a>
+    </div>
+</div>
+
+<div class="projects-slide entry-fade" id="projects-slide-2">
+    <figure class="projects-figure entry-fade">
+        <img class="projects-img-landscape" src="imgs/portfolio-click-to-select-demo-page.jpg" alt="Screenshot of Click-to-Select ad" style="filter: brightness(.7);">
+        <img class="projects-img-portrait" src="imgs/portfolio-click-to-select-demo-page-portrait.jpg" alt="Screenshot of Click-to-Select ad">
+
+        <div>
+            <a href="https://chromewebstore.google.com/detail/click-to-select/jjagaanjnkolbljjjpjpilmhkkbdogma?hl=en" target="_blank" class="invert-btn invert-btn-white">Visit Chrome Web Store</a>
+        </div>
+    </figure>
+
+    <h3 class="project-title entry-fade">Browser Plugin Development: Click-to-Select</h3>
+    <p class="entry-fade"><strong>Launched: </strong>September 2024</p>
+
+    <div>
+        <p class="project-description medium-text entry-fade"><strong>As a largely self-taught front-end developer, I've built my skills through online courses and hands-on projects</strong>. While I deeply enjoy the visual and interactive side of front-end work, I consciously took on the challenge of browser extension development to think beyond aesthetics and focus on core functionality.
+</p>
+        <p class="project-description medium-text entry-fade"><strong>I developed the Click-to-Select browser extension from scratch</strong>, offering an intuitive alternative to traditional drag-and-drop text selection. This project stretched my abilities, challenging me to focus deeply on user interaction. Click-to-Select, <a href="https://chromewebstore.google.com/detail/click-to-select/jjagaanjnkolbljjjpjpilmhkkbdogma?hl=en" target="_blank" class="intext-link">now downloadable</a> from Chrome Web Store, is the result of my knack for <strong>identifying user pain points</strong> related to information access, then <strong>producing elegant, functional solutions that simplify digital tasks</strong>. Ultimately, it's about enhancing the user's ability to quickly "take in" and utilise content.</p>
+    </div>
+
+    <div class="focus-box-ctn entry-fade">
+        <article>
+            <h4>Tools used:</h4>
+            <div class="focus-box">
+                <p>
+                    <span class="projects-tool">HTML, CSS,<br>JavaScript</span>
+                </p>
+                <p>
+                    <span class="projects-tool">Chrome Extension API<br>(Manifest V3)</span>
+                   
+                </p>
+
+            </div>
+        </article>
+    </div>
+
+
+    <div class="projects-slide-btt-ctn entry-fade">
+        <a href="#projects" class="invert-btn invert-btn-white projects-slide-btt">See all projects</a>
+    </div>
+</div>
+
+<div class="projects-slide entry-fade" id="projects-slide-3">
+    <figure class="projects-figure entry-fade">
+        <img style="filter: brightness(.7);" class="projects-img-landscape" src="imgs/menusofoffmenu.wordpress.com_hero_pane.png" alt="Screenshot of Menus of Off Menu landing page">
+        <img class="projects-img-portrait" src="imgs/menusofoffmenu.wordpress.com_portrait.png" alt="AI-generated photo of cocktail featured in Menus of Off Menu blog social media channels">
+
+        <div>
+
+            <a href="https://menusofoffmenu.wordpress.com/" target="_blank" class="invert-btn invert-btn-white">See live</a>
+        </div>
+    </figure>
+
+    <h3 class="project-title entry-fade">WordPress Blog Creation: Menus of Off Menu</h3>
+    <p class="entry-fade"><strong>Launched: </strong> June 2025</p>
+
+    <div>
+        <p class="project-description medium-text entry-fade">I developed <i>Menus of Off Menu</i>, a dynamic WordPress blog dedicated to compiling guest menus from the popular comedy/food podcast <i><a href="https://www.offmenupodcast.co.uk/" target="_blank" class="intext-link">Off Menu</a></i>. Each individual 'menu' blog post features external recipe links, enabling readers to recreate dishes at home. I also enrich the posts with resources on cookery skills, fun facts, and curated product recommendations. A <strong>key achievement was efficiently modifying WordPress template files to speed up the generation of hundreds of reusable resource links</strong> and several menu posts without compromising quality and consistency. </p>
+
+        <p class="project-description medium-text entry-fade">By <strong>taking time to truly understand the podcast's unique voice and style</strong> for this project—its signature blend of whimsy, warmth, and comedic flair— <strong>I embraced a colourful, bold design</strong> to perfectly match the show's personality. In departing from my usual minimalist style, I made sure to create an online space that would deeply resonate with <i>Menus of Off Menu</i>'s well-established fanbase, <strong>showcasing my versatility and readiness to adapt my style</strong>.
+</p>        
+    </div>
+
+    <div class="focus-box-ctn entry-fade">
+        <article>
+            <h4>Tools used:</h4>
+            <div class="focus-box">
+                <p>
+                    <span class="projects-tool">WordPress</span>
+                    <span class="projects-tool-use subtitle">[website build]</span>
+                </p>
+                <p>
+                    <span class="projects-tool">HTML, CSS, and JavaScript</span>
+                </p>
+                <p>
+                    <span class="projects-tool">Generative AI tools</span>
+                    <span class="projects-tool-use subtitle">[graphic design +<br>social media strategy]</span>
+                </p>
+            </div>
+        </article>
+    </div>
+
+    <div class="projects-slide-btt-ctn entry-fade">
+        <a href="#projects" class="invert-btn invert-btn-white projects-slide-btt">See all projects</a>
+    </div>
+</div>
+
+        
+
+    </div> 
 </section>
 
 
 
-<section id="skills">
-<h2 class="fade-in">Skills & Services</h2>
+<section id="work-process" class="entry-fade">
+    <h2 class="entry-fade">Work Process</h2>
+    <p class="entry-fade medium-text">If you're looking to create or redesign a website, here's what you can expect from our collaborative journey:</p>
+    <div> 
+        <div class="process-phase entry-fade">
+            <div class="process-phase-num large-text">1</div>
+            <div class="process-phase-title"><h3>Before We Begin</h3></div>
+        </div>
+        <div class="entry-fade">
+            <p class="medium-text">Once you have sent me <a href="mailto:gn.onwuneme@yahoo.com" class="intext-link email-link">a request email</a> outlining your vision and initial design preferences, we'll arrange for a focussed 30-minute consultation to <strong>define your goals, target audience, and current content challenges</strong>.</p>
+        </div>
 
+        <div class="process-phase entry-fade">
+            <div class="process-phase-num large-text">2</div>
+            <div class="process-phase-title"><h3>During the Transformation</h3></div>
+        </div>        
+        <div class="entry-fade">
+            <p class="medium-text"><strong>I establish the foundational structure and information architecture of your new website</strong>, focussing on logical content flow. I also refine the website's layout, performance, and user-friendliness, <strong>ensuring your message is delivered efficiently</strong>. You will receive transparent, weekly status updates, at a minimum, keeping you informed every step of the way.</p>
+        </div>
 
-<div id="skillsgrid">
-	<div id="skills-desc" class="fade-in appear">
-		<h3>My mission</h3>
-		<p>When I create or redesign a website, I aim to: 
-		<ul>	
-			<li>Create clean interfaces and facilitate rewarding, hassle-free user experiences.</li>
-			<li>Ensure that visitors quickly understand why and how its contents meet their needs.</li>
-			<li>Help my clients manage their websites with ease.</li></ul></p>
-	</div>
-
-	<div id="skills-accordion">
-		<div class="accordion-item fade-in">
-			<div class="accordion-body">
-
-			
-			<h4>Web design</h4>
-			<p>HTML</p>
-			<p>CSS</p>
-			<p>JavaScript</p>
-			<p>Bootstrap</p>
-			<p>jQuery</p>
-			<p>React</p>
-			<p>Squarespace web design</p>
-			<h4>Content creation</h4>
-			<p>SEO optimisation</p>
-			<p>Article writing</p>
-			<p>Interviewing</p>
-			<p>Research</p>
-			<p>Content curation</p>
-			<h4>Data analysis</h4>
-			<p>Data visualisation</p>
-			<p>Data storytelling</p>
-			<p>Python programming</p>
-			<p>D3</p>
-
-
-			</div>
-			<button class="accordion-btn"><h3>Toolkit</h3><span></span></button>
-		</div>
-
-		<div class="accordion-item fade-in">
-			<div class="accordion-body">
-			<p>If you're looking to create or redesign a website, here's what you can expect:</p>
-			<br />
-			<h4>Before</h4>
-			<p>You <a href="mailto:gn.onwuneme@yahoo.com" target="_blank">send a request email</a> with your design preferences.</p>
-			<p>We meet for 30 minutes, during which we'll discuss your goals for your website.</p>
-			<h4>During</h4>
-			<p><i>Week 1: </i>I create the basic structure of your new website.</p>
-			<p><i>Week 2: </i>I refine the website's layout, and work on improving loading speeds and user-friendliness.</p>
-			<p>You will receive weekly status updates, at a minimum.</p>
-			<h4>After</h4>
-			<p>For individual clients, I deliver websites within <strong>2-3 weeks</strong>.</p>
-			<p>At the end of our collaboration, I'll give you a training session on how to update content with ease, and you will receive 30 days of free email support.</p>
-			</div>
-
-			<button class="accordion-btn"><h3>Process</h3><span></span></button>
-		</div>
-
-		<div class="accordion-item fade-in">
-			<div class="accordion-body">
-			<h4>Web dev</h4>
-			<p>Squarespace web design</p>
-			<p>Web app development</p>
-
-			<h4>Content</h4>
-			<p>Copywriting</p>
-			<p>Interviewing</p>
-			<p>Content curation</p>
-			<h4>Translation</h4>
-			<p>Website translation (Swedish and Danish to English)</p>
-			<p>Technical translation (Swedish and Danish to English)</p>
-			</div>
-			<button class="accordion-btn"><h3>Services</h3><span></span></button>
-		</div>
-	</div>
-</div>
-
+        <div class="process-phase entry-fade">
+            <div class="process-phase-num large-text">3</div>
+            <div class="process-phase-title"><h3>After Launch: Sustained Success</h3></div>
+        </div>
+        <div class="entry-fade">
+            <p class="medium-text">For smaller websites (e.g. websites with up to 4-5 pages), <strong>I commit to delivering polished, ready-to-use solutions within a week</strong>. Upon completion, I will provide a comprehensive training session on how to effortlessly update and manage your content, along with 30 days of complimentary email support.
+</p>
+        </div>
+    </div>
 </section>
 
 
-<section id="work">
-<h2 class="fade-in">Work</h2>
+<section id="skills-services" class="entry-fade">
+    <h2>Skills & Services</h2>
+    <div id="skills-grid">
+        <div><h3>Toolkit</h3></div>
+        <div><h3>Services</h3></div>
+        
+        <div class="skills-nav">
+            <details name="services">
+                <summary class="medium-text invert-btn invert-btn-white bottom-right"><span><i class="fa-solid fa-laptop-code"></i>Web Development</span><i class="fa-solid fa-chevron-down"></i></summary>
+                <div>
+                    <div class="focus-box">
+                        <p>HTML</p>
+                        <p>CSS</p>
+                        <p>JavaScript</p>
+                        <p>Bootstrap</p>
+                        <p>jQuery</p>
+                        <p>React</p>                        
+                    </div>
+                </div>
+                
+            </details>
+            <details name="services">
+                <summary class="medium-text invert-btn invert-btn-white"><span><i class="fa-solid fa-pen-to-square"></i>Content Strategy</span><i class="fa-solid fa-chevron-down"></i></summary>
+                <div>
+                    <div class="focus-box">
+                        <p>SEO optimization</p>
+                        <p>Copywriting</p>
+                        <p>Interviewing</p>
+                        <p>Content curation</p>
+                    </div>
+                </div>
+            </details>
+            <details name="services">
+                <summary class="medium-text invert-btn invert-btn-white"><span><i class="fa-solid fa-chart-line"></i>Data Analysis & Visualisation</span><i class="fa-solid fa-chevron-down"></i></summary>
+                <div>
+                    <div class="focus-box">
+                        <p>Data visualisation</p>
+                        <p>Data storytelling</p>
+                        <p>Python programming</p>
+                        <p>D3.js</p>
 
-<div id="carousel-ctn" class="carousel">
+                    </div>
+                </div>
+            </details>
 
+    </div>
 
-	<div>
-	<div id="work1">
+        <div class="skills-nav">
+            <details name="skills">
+                <summary class="medium-text invert-btn invert-btn-white"><span><i class="fa-solid fa-globe"></i>Web Design</span><i class="fa-solid fa-chevron-down"></i></summary>
+                <div>
+                    <div class="focus-box">
+                        <p>Squarespace web design</p>
+                        <p>WordPress web design</p>
+                        <p>Custom web<br>design/development</p>
+                        <p>Custom web app development</p>
+                    </div>
+                </div>
+            </details>
+            <details name="skills">
+                <summary class="medium-text invert-btn invert-btn-white"><span><i class="fa-solid fa-sitemap"></i>Information Structuring</span><i class="fa-solid fa-chevron-down"></i></summary>
+                <div>
+                    <div class="focus-box">
+                        <p>Article writing</p>
+                        <p>Research</p>
+                        <p>Information mapping</p>
 
-		<div class="sample-desc fade-in">
-
-		<!--
-		<select>
-		<option></option>
-		<option></option>
-		<option></option>
-		</select>
-		-->
-
-			<div><h3>Web design for creatives</h3><p>I've recently had the joy of redesigning german-to-english-translation.org for award-winning translator Ruth Martin. If you need a hand with your own website, please <a href="#contact">get in touch</a>!</p></div>
-			<button class="sample-btn tools-btn">Tools used</button>
-			<a class="sample-btn" href="https://web.archive.org/web/20230501120753/https://www.german-to-english-translation.org/" target="_blank">Before redesign</a>
-			<a class="sample-btn" href="https://german-to-english-translation.org" target="_blank">Visit german-to-english-translation.org</a>
-			<div class="sample-tools"><h4>Tools used</h4><p>HTML, CSS, and JavaScript</p><p>Squarespace</p><button class="tools-close-btn"></button></div>
-		</div>
-
-	</div>
-	</div>
-
-<!--
-	<div>
-	<div id="work2">
-
-		<div class="sample-desc">
-			<div><h3>PXReader - learn speedreading in less than 15 minutes</h3><p>I've turned Tim Ferriss' analogue <a href="https://tim.blog/2009/07/30/speed-reading-and-accelerated-learning/" target="_blank">scientific speedreading method</a> into an online game. Now, you can learn to speedread for free in less than 15 minutes. Available across all devices.</p></div>
-			<button class="sample-btn tools-btn">Tools used</button>
-			<a class="sample-btn" href="https://pxreader.com" target="_blank">Visit PXReader.com</a>
-			<div class="sample-tools"><h4>Tools used</h4><p>HTML, CSS, and JavaScript</p><p>Squarespace</p><p>Copywriting to simplify the science behind <br /><a href="https://pxreader.com/px-method" target="_blank">how the PX Method works</a>.</p><button class="tools-close-btn"></button></div>
-		</div>
-
-
-	</div>
-	</div>
-
-	<div>
-	<div id="work3">
-
-		<div class="sample-desc work-focus">
-			<div>	
-				<h3>TranslatorTools - everything you need as a new translator</h3>
-				<p>After getting a <a href="https://www.amazon.co.uk/Life-Every-Breath-Reporter-Adventurer-ebook/dp/B09LV9GXSS" target="_blank">translation published by Amazon Crossing</a> in 2022, I created an online resource library for new and aspiring translators. More recently, I've also started offering web design services to translators.</p>
-			</div>
-
-			<button class="sample-btn tools-btn">Tools used</button>
-			<a class="sample-btn" href="https://www.translatortools.org/" target="_blank">Visit translatortools.org</a>
-			<div class="sample-tools"><h4>Tools used</h4><p>Squarespace</p><p>HTML and CSS</p><p>Content curation</p><button class="tools-close-btn"></button></div>
-		</div>
-
-
-	</div>
-	</div>
--->
-
-	
-	<div>
-	<div id="work5">
-
-		<div class="sample-desc work-focus">
-			<div>
-				<h3>Interactive data visualisations</h3>
-				<p><a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> has been a huge help in my journey as a self-taught designer and developer. As part of the course, I created a collection of interactive data charts and maps using the <a href="https://d3js.org/" target="_blank">D3 library</a>.</p>
-			</div>
-			<button class="sample-btn tools-btn">Tools used</button>
-			<a class="sample-btn" href="https://codepen.io/collection/rxgeoE" target="_blank" target="_blank">See collection</a>
-			<div class="sample-tools"><h4>Tools used</h4><p>HTML, CSS, and JavaScript</p><p>Bootstrap, a library of commonly-used website components</p><p>D3 library</p>
-			<button class="tools-close-btn"></button></div>
-		</div>
-
-
-
-	</div>
-	</div>
-
-
-	<div>
-
-	<div id="work4">
-		<div class="sample-desc work-focus">
-			<div>
-				<h3>Click-to-Select - browser extension that simplifies text selection</h3>
-				<p>I created Click-to-Select from scratch as an alternative for anyone who finds drag-and-drop text selection janky and frustrating. It's now available for free at the <a href="https://chromewebstore.google.com" target="_blank">Chrome Web Store</a>!</p>
-			</div>
-			<button class="sample-btn tools-btn">Tools used</button>
-			<a class="sample-btn" href="https://chromewebstore.google.com/detail/click-to-select/jjagaanjnkolbljjjpjpilmhkkbdogma" target="_blank">Download extension to Google Chrome</a>
-			<div class="sample-tools">
-				<h4>Tools used</h4>
-				<p>HTML, CSS, and vanilla JavaScript to create the extension from scratch</p>
-				<p>Squarespace to host the demo website</p>
-				<button class="tools-close-btn"></button>
-			</div>
-		</div>
-	
-	</div>
-	</div>
+                    </div>
+                </div>
+            </details>
+            <details name="skills">
+                <summary class="medium-text invert-btn invert-btn-white"><span><i class="fa-solid fa-language"></i>Language Services</span><i class="fa-solid fa-chevron-down"></i></summary>
+                <div>
+                    <div class="focus-box">
+<p style="text-align: center; flex-direction: column;"><span>Website translation</span><span class="projects-tool-use subtitle">(German/Swedish/Danish to English)</span></p>
+<p style="text-align: center; flex-direction: column;"><span>Technical translation</span><span class="projects-tool-use subtitle">(German/Swedish/Danish to English)</span></p>
+                    </div>
+                </div>
+            </details>
+    </div>
 
 </div>
+</section>
+
+<section id="about" class="entry-fade">
+    <h2>About Gloria</h2>
+    <div class="large-text entry-fade">
+        <p class="medium-text entry-fade">I'm Gloria Nneoma Onwuneme, a web developer/designer with a unique background as a former doctor and published translator. My journey into web design began with the thrill of creating my first website, a resource library for new freelance translators. This ignited a passion for crafting engaging and impactful online experiences that truly resonate with users.</p>
+        <h3 class="medium-text entry-fade">My Professional Journey</h3>
+        <p class="medium-text entry-fade">My experience as a doctor in public UK hospitals and private industry taught me the critical importance of clear, concise communication and the <strong>skill of quickly processing and organising vast amounts of information</strong>. <a href="https://www.amazon.co.uk/Life-Every-Breath-Reporter-Adventurer-ebook/dp/B09LV9GXSS" target="_blank" class="intext-link">Translating a biography</a> (Amazon Crossing, 2022) honed my ability to repackage complex narratives for new audiences, <strong>ensuring fidelity while optimising for comprehension and flow</strong>. Since creating and launching my first website in 2023, <strong>I've immersed myself in responsive web design, data analysis, and the use of generative AI</strong>, continually expanding my toolkit to build robust, user-centric digital experiences that prioritise information accessibility.</p>
+    </div>
+    <article class="testimonial" style="max-width: 450px; margin: 2rem auto;">
+        <p>Gloria is a proud Squarespace Circle Member; here's <a href="https://pros.squarespace.com/blog/work-with-a-circle-member" target="_blank" class="intext-link">why you should hire a Squarespace Circle Member</a> for your next web design project.</p>
+    </article>
 
 
-<button class="control-btn left" id="carousel-left"></button>
-<button class="control-btn right" id="carousel-right"></button>
+<h3 class="medium-text entry-fade">Reach Out...</h3>
+<p class="medium-text entry-fade">...If you:
+    <ul class="medium-text entry-fade">
+        <li class="entry-fade">Need help creating or redesigning a website that truly clarifies your offering</li>
+        <li class="entry-fade">Require strategic content reorganisation or information architecture services</li>
+        <li class="entry-fade">Are seeking other specialised web content services to enhance user comprehension and grow your audience</li>        
+    </ul>
+</p>
+   
 
-<div id="indicator-buttons" class="fade-in">
-<button></button>
+    <div id="about-me-some">
+        <div class="entry-fade">Connect on:</div>
+        <div style="font-size: 1.5rem;" class="entry-fade">
+            <a href="https://github.com/GloriaNOnwuneme" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://x.com/GloriaNOnwuneme" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="linkedin.com/in/gloria-nneoma-onwuneme-28853732a/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
 
-<!--
-<button></button>
-<button></button>
--->
-	
-<button></button>
-<button></button>
-</div>
 
 </section>
 
-<section id="about">
-<h2 class="fade-in">About Me</h2>
-
-<div id="about-grid">
-	<div class="fade-in">
-		<img src="imgs/GloriaNneomaOnwuneme.webp" alt="photo of Gloria Nneoma Onwuneme"/>
-
-		<div><p>I'm a Danish-born Nigerian, former doctor and translator, and web developer/designer.</p><p>Since launching my first-ever website on Squarespace and coding a <a href="https://www.nngroup.com/articles/back-to-top/" target="_blank" style="color: white;">back-to-top button</a> from scratch, I've chased the thrill and joy of creating engaging and impactful online experiences.</p></div>
-	</div>
-
-	<div class="fade-in" id="professional-ctn">
-		<div id="professional-grid">
-			<div><img src="icons/vital_signs.svg" alt=""><p>I've worked as a doctor in public UK hospitals and private industry, delivering frontline care and engaging in clinical research.</p></div>
-			<div><img src="icons/translate.svg" alt=""><p>I had the privilege of translating a biography about <a href="https://www.amazon.co.uk/Life-Every-Breath-Reporter-Adventurer-ebook/dp/B09LV9GXSS" target="_blank">Ester Blenda Nordström</a> from Swedish to English, which was published by Amazon Crossing in 2022.</p></div>
-			<div><img src="icons/devices.svg" alt=""><p>Ok, back to web-dev real quick: In 2023, I launched my first website, an online resource library for new and experienced translators. Since then, I've completed courses in responsive web design and data analysis.</p></div>
-		</div>
-
-		<button class="about-close-btn"><span></span>Aside from building websites...</button>
-	</div>
-
-
-	<div class="fade-in" id="personal-ctn">
-
-		<div id="personal-grid">
-			<div><img src="icons/cookie.svg" alt=""><p>I'm a keen baker, and have taken to making at least one batch of cookies (or a cake) per week...</p></div>
-			<div><img src="icons/exercise.svg" alt=""><p>...which is why I've deemed it necessary to take up a consistent Pilates practice. For an accurate primer on Pilates, please watch this <a href="https://www.youtube.com/watch?v=MJZsVpXZmKw" target="_blank">3-minute informational video</a>.</p></div>
-			<div><img src="icons/book_5.svg" alt=""><p>I enjoy non-fiction books written by compelling stylists, with topics ranging from authors' lives to anything Brené Brown has to say.</p></div>
-		</div>
-		<button class="about-close-btn"><span></span>Outside of work...</button>
-
-	</div>
-
-
-</div>
-
-</section>
-
-<section id="contact">
-	<h2 class="fade-in">Contact</h2>
-
-
-<div id="contact-grid">
-	<div>
-	<img class="fade-in" src="imgs/contact-photo-GloriaNOnwuneme.jpg" alt="">
-	<div id="membership" class="fade-in">
-	<p>Gloria Nneoma Onwuneme is a</p>
-	<a href="https://www.squarespace.com" target="_blank"><img src="icons/circle-member.png" alt="Visit Squarespace.com to learn more about Squarespace Circle web designers"/></a>
-	<hr style="margin: 1rem auto;">
-	<p>Learn more about why you should hire a Squarespace Circle Member for your next web design project <a href="https://pros.squarespace.com/blog/work-with-a-circle-member" target="_blank">here</a>.</p>
-	</div>
-
-	</div>
-
-	<div>
-	<div id="contact-btns" class="fade-in">
-		<div>
-		<p>Get in touch if you:</p>
-		<ul>
-			<li>Need help creating or redesigning your website</li>
-		
-	<li>Require other web content services</li>
-		</ul>
-		</div>
-		<a href="mailto:gn.onwuneme@yahoo.com" class="email-btn">Copy email</a>
-		<!--
-		<a href="https://www.translatortools.org/web-design-form" target="_blank">Request web design services</a>
-		-->
-		
-		<div>
-			<p id="socials-heading">Connect on:</p>
-			<div>
-			<div id="socials">
-				<a href="https://x.com/GloriaNOnwuneme" target="_blank" style="background: url('icons/x.svg'); background-size: 100%;"></a>
-				<a href="https://github.com/GloriaNOnwuneme" target="_blank" style="background: url('icons/github-mark-white.svg'), linear-gradient(to right, black, black); background-size: 100%;"></a>
-				<a href="https://codepen.io/gnonwuneme/" target="_blank" style="background: url('icons/codepen-white.svg'), linear-gradient(to right, black, black); background-size: 100%;"></a>
-			</div>
-			</div>
-		</div>
-	</div>
-	</div>
-</div>
-
-</section>
+    </main>
+    <footer>
+        <div>
+            <h6>&copy; Gloria Nneoma Onwuneme <span id="copyright-year"></span></h6>
+                    <p class="footer-text">Buy me a coffee: <a href="#" target="_blank" class="footer-text"><i style="background-color: white; color: black; padding: 3px; border-radius: 1.5px;" class="fa-brands fa-paypal"></i></a></p>
+        </div>
+        <div>
+            <h6>Live projects</h6>
+            <a href="https://menusofoffmenu.wordpress.com/" target="_blank" class="footer-text"><p>Menus of Off Menu<i class="fa-solid fa-up-right-from-square"></i></p></a>
+            <a href="https://chromewebstore.google.com/detail/click-to-select/jjagaanjnkolbljjjpjpilmhkkbdogma?hl=en" target="_blank" class="footer-text"><p>Click-to-Select<i class="fa-solid fa-up-right-from-square"></i></p></a>
+        </div>
+    </footer>
 
 
 
-<div id="attr-modal">
-	<div>
-	<button></button>
-	<h2>This website uses:</h2>
-	<p><a href="https://fonts.google.com/icons" target="_blank">Google Icons</a></p>
-	<p>Responsive web design tips shared on  <a href="https://stackoverflow.com/a/4617920" target="_blank">Stack Overflow</a></p>
-	<hr style="margin: 1.7rem auto; width: 35%;">
-	<p>This website features a buy-me-a-coffee link powered by PayPal. See their privacy terms <a href="https://www.paypal.com/uk/legalhub/privacy-full" target="_blank">here</a>.</p>
-	</div>
-</div>
 
 
-<footer>
-<p>&copy; Gloria Nneoma Onwuneme <span id="copyright-year"></span></p>
-<button id="attr-btn">Acknowledgements</button>
-<!-- <a href="https://translatortools.org" target="_blank">Privacy policy</a> -->
-</footer>
 
-<script src="script.js"></script>
+
+
+    <script src="script.js"></script>
+
+
+
+
+
+
 
 </body>
 </html>

@@ -1,284 +1,316 @@
-/**/	document.onreadystatechange = () => {
-
-
-		if (document.readyState == "complete") {
-			if (document.querySelector('#loading-div')) {
-				document.querySelector('#loading-div').classList.add("remove-div");
-				setTimeout(() => {document.querySelector("#loading-div").remove()}, 200);
-			}
-		}
-	}
-
-
-
-	const copyEmail = (e) => {
-		event.preventDefault();
-		let text = e.target.href.replace('mailto:', '');
-		navigator.clipboard.writeText(text)
-		.then(navigator.clipboard.readText());
-	}
-
-	document.querySelectorAll(".email-btn").forEach(btn => btn.addEventListener("click", copyEmail));
-
-
-	function buildingThresholds() {
-		let thresholds = [];
-		for (let i = 0; i < 1000; i++) {
-			thresholds.push(i/1000);
-		}
-
-		return thresholds;
-	}
-
-
-function headerAppear() {
-	createObserver();
-
-	function createObserver() {
-		let observer;
-		
-		let options = {
-			rootMargin: "-64px 0px 0px 0px",
-			threshold: buildingThresholds(),
-		};
-
-		observer = new IntersectionObserver(handleIntersect, options);
-		observer.observe(document.querySelector("section:first-of-type"));
-	}
-
-
-	function handleIntersect(entries, observer) {
-		entries.forEach((entry) => {
-			if (entry.intersectionRatio <= 0) {
-				document.querySelector("header").classList.add("header-appear");
-			} else {
-				document.querySelector("header").classList.remove("header-appear");
-			}
-		});
-	}
+/*
+ * FOOTER: DISPLAY CURRENT YEAR
+ */
+function setCopyrightYear() {
+  const copyrightYearElement = document.querySelector('#copyright-year');
+  if (copyrightYearElement) {
+    const currentYear = new Date().getFullYear();
+    copyrightYearElement.textContent = currentYear;
+  }
 }
 
-
-window.addEventListener("resize", headerAppear);
-window.addEventListener("load", headerAppear);
+document.addEventListener('DOMContentLoaded', setCopyrightYear);
 
 
 
-function sectionsAppear() {
-	createObserver();
+/* STORING HEIGHTS OF DETAILS + REFRESHING DATA ONRESIZE*/
 
-	function createObserver() {
-		let observer;
-		
-		let options = {
-			threshold: buildingThresholds(),
-		};
-
-		observer = new IntersectionObserver(handleIntersect, options);
-		let sections = Array.from(document.querySelectorAll("section:not(:first-of-type)"));
-		sections.forEach((block, i) => {
-			sections[i] = [block, ...Array.from(block.querySelectorAll(".fade-in"))];
-		});
-		sections = sections.flat();
-		sections.forEach((section) => observer.observe(section));
-	}
+            const fetchSkillsHeights = (detailName) => {return Array.from(document.querySelectorAll(`details[name=${detailName}] .focus-box`)).map(box => box.getBoundingClientRect().height);}
+            window.onload = () => {fetchSkillsHeights('skills'); fetchSkillsHeights('services');};
+            window.onresize = () => {fetchSkillsHeights('skills'); fetchSkillsHeights('services');};
+            
 
 
 
-	let num = 0;
 
-	function handleIntersect(entries, observer) {
-		entries.forEach((entry) => {
-			if ((entry.boundingClientRect.top < .8 * window.innerHeight) || entry.intersectionRatio > .7) {
-				if (entry.target.tagName === "section") {
-					num = 0;
-					entry.target.classList.replace("fade-in","opacity-max");
-				} else {
-					num++;
-					let interval = num*50;
-					setTimeout(() => {entry.target.classList.replace("fade-in","appear")}, interval);
-				}
-			}
 
-		});
-	}
+
+
+/* ANIMATING DETAILS IN SKILLS/SERVICES */
+
+const detailsGroups = (detailName) => {
+
+    const detailsElements = Array.from(document.querySelectorAll(`[name='${detailName}'] summary`));
+    /* getting summary-elements to define click evtListeners below*/
+    detailsElements.forEach((btn, i) => {
+        let nums = fetchSkillsHeights(detailName);
+        console.log('boxheights', nums);
+        console.log('btn clicked', i);
+    
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            detailsElements.forEach((sum, i) => sum.classList.remove('active'));
+
+            let varName = `--skillset-height-${detailName}`;
+
+            /* TARGETING .parentElement TO ACCESS DETAILS ELEMENT*/
+            btn.parentElement.open 
+                ? document.querySelector(':root').style.setProperty(varName, `0px`)
+                : document.querySelector(':root').style.setProperty(varName, `${nums[i]}px`);
+
+            if (btn.parentElement.open) {
+                setTimeout(() => {btn.parentElement.removeAttribute("open")}, 1100);
+            } else {
+                btn.classList.add('active');
+                if (detailsElements.some(info => info.parentElement.open)) {
+                    document.querySelector(':root').style.setProperty(varName, `0px`);
+                    setTimeout(() => {document.querySelector(':root').style.setProperty(varName, `${nums[i]}px`); btn.parentElement.open = true;}, 1100);
+                } else {
+                    setTimeout(() => {btn.parentElement.open = true;}, 500);                }
+                
+            }
+
+        });
+    });
 }
 
-
-window.addEventListener("resize", sectionsAppear);
-window.addEventListener("load", sectionsAppear);
-window.addEventListener("scroll", sectionsAppear);
-
-/**/
-
-const scrollerCtns = el => {
-	let carousel = document.querySelector(`#${el}`);
-	let btns = Array.from(carousel.parentElement.querySelectorAll(".control-btn"));
-	let slides = Array.from(carousel.children);
-		
-	setTimeout(() => {
-
-		(slides[slides.length - 1].getBoundingClientRect().right - .5*slides[slides.length - 1].getBoundingClientRect().width <= window.innerWidth) 
-			? btns[1].classList.add("hide") 
-			: btns[1].classList.remove("hide");
-		
-		(slides[0].getBoundingClientRect().left + .5*slides[0].getBoundingClientRect().width >= carousel.getBoundingClientRect().left) 
-			? btns[0].classList.add("hide")
-			: btns[0].classList.remove("hide");
-	},500);
+/*running details animation function for separate .skills-nav elements*/
+detailsGroups('skills');
+detailsGroups('services');
 
 
+    const hamburgerButton = document.querySelector('#hamburger-button');
+    const navLinksContainer = document.querySelector('#nav-links-container');
 
-	let inView = slides.findIndex(slide => (slide.getBoundingClientRect().left + .5*slide.getBoundingClientRect().width >= carousel.getBoundingClientRect().left) && (slide.getBoundingClientRect().right - .5*slide.getBoundingClientRect().width  <= window.innerWidth));
+    hamburgerButton.addEventListener('click', function() {
+        hamburgerButton.classList.toggle('open');
+        navLinksContainer.classList.toggle('open');
+    });
 
-	if (carousel.parentElement.querySelector("#indicator-buttons")) {let indicators = Array.from(carousel.parentElement.querySelector("#indicator-buttons").children); indicators.forEach((indicator, i) => {(i == inView) ? indicator.classList.add("opacity-max") : indicator.classList.remove("opacity-max");})}
+    navLinksContainer.addEventListener('click', function(event) {
+        if (event.target.classList.contains('nav-link')) {
+            /* HIDE MOBILE MENU + RESET MENU BTN APPEARANCE IF ANY .nav-link CLICKED WITHIN MENU*/
+            navLinksContainer.classList.remove('open');
+            hamburgerButton.classList.remove('open');
+        }
+    });
 
-/**/
-if (slides[0].querySelector(".sample-desc")) {
-	slides.forEach((slide,i) => {(i == inView) ? slide.querySelector(".sample-desc").classList.add("appear") : slide.querySelector(".sample-desc").classList.remove("appear");});
+
+    /* PROJECTS SECTION - PICKING PROJECT TO BE DISPLAYED */
+    const projectButtons = document.querySelectorAll('[data-control-btn]');
+    const projectSlides = document.querySelectorAll('.projects-slide'); 
+
+function setActiveProject(targetSlideId) {
+    projectSlides.forEach(slide => {
+        slide.classList.remove('show');
+    });
+
+    /* RESETTING APPEARANCE OF 'PROJECT TABS' */
+    projectButtons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    const targetSlide = document.querySelector(`#${targetSlideId}`);
+    if (targetSlide) {
+        targetSlide.classList.add('show');
+    }
+
+    const targetButton = document.querySelector(`[data-control-btn="${targetSlideId}"]`);
+    if (targetButton) {
+        targetButton.classList.add('active');
+    }
 }
 
+projectButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const targetSlideId = this.getAttribute('data-control-btn');
+        setActiveProject(targetSlideId);
+        document.querySelector(`#${targetSlideId}`).scrollIntoView();
 
-}
-
-scrollerCtns("nav-scroller");
-scrollerCtns("carousel-ctn");
-
-document.querySelector("#nav-scroller").addEventListener("scrollend", () => {scrollerCtns("nav-scroller");});
-document.querySelector("#carousel-ctn").addEventListener("scrollend", () => {scrollerCtns("carousel-ctn");});
-
-
-const scrollerBtn = (e) => {
-	let carousel = e.target.parentElement.querySelector(".carousel");
-	let slideWidth = Array.from(carousel.children)[0].getBoundingClientRect().width;
-
-	if (e.target.classList.contains("left")) {carousel.scrollBy(-slideWidth, 0);} else {carousel.scrollBy(slideWidth,0);}
-}
-
-Array.from(document.querySelector("#nav-scroller").parentElement.querySelectorAll(".control-btn")).forEach(btn => btn.addEventListener("click", scrollerBtn));
-Array.from(document.querySelector("#carousel-ctn").parentElement.querySelectorAll(".control-btn")).forEach(btn => btn.addEventListener("click", scrollerBtn));
-
-
-const indicatorClicks = () => {
-	let slides = Array.from(document.querySelectorAll("#carousel-ctn > div"));
-	let btns = Array.from(document.querySelector("#indicator-buttons").children);
-	let index = btns.indexOf(event.target);
-	slides[index].scrollIntoView();
-	
-	btns.forEach((btn, i) => {(i == index) ? btn.classList.add("opacity-max") : btn.classList.remove("opacity-max");});
-}
-
-Array.from(document.querySelector("#indicator-buttons").children).forEach(btn => btn.addEventListener("click", indicatorClicks));
-
-
-let btns = Array.from(document.querySelectorAll(".accordion-btn"));
-
-const skillsAccord = () => {
-	let info = Array.from(document.querySelectorAll(".accordion-item"));
-	let index = btns.indexOf(event.target);
-	info.forEach((card,i) => {
-		if (i==index) {
-			if (card.classList.contains("accordion-show")) {
-				card.classList.remove("accordion-show");
-				btns[i].querySelector("span").classList.remove("accordion-show");
-			} else {
-				card.classList.add("accordion-show");
-				btns[i].querySelector("span").classList.add("accordion-show");
-				let scroller = setInterval(() => {card.scrollIntoView()}, 1);
-				setTimeout(() => {clearInterval(scroller)}, 10);
-			}
-		} else {
-			card.classList.remove("accordion-show");
-			btns[i].querySelector("span").classList.remove("accordion-show");
-		} 
-	});
-}
-
-btns.forEach(btn => btn.addEventListener("click", skillsAccord));
-
-document.querySelectorAll(".about-close-btn").forEach(btn => btn.addEventListener("click", () => {
-	if (btn.classList.contains("about-open")) {
-		btn.classList.remove("about-open");
-		Array.from(btn.parentElement.children[0].children).forEach(ch => ch.classList.remove("appear"));
-	} else {
-		btn.classList.add("about-open");
-		Array.from(btn.parentElement.children[0].children).forEach(ch => ch.classList.add("appear"));
-	}
-	 	 
-	})
-);
-
-document.querySelectorAll(".tools-btn").forEach(btn => btn.addEventListener("click", () => {
-btn.parentElement.querySelector(".sample-tools").classList.add("appear");
-	
-}));
-
-
-document.querySelectorAll(".tools-close-btn").forEach(btn => btn.addEventListener("click", () => {
-btn.parentElement.classList.remove("appear");
-	
-}));
-
-
-document.querySelector("#attr-btn").addEventListener("click", () => {
-document.querySelector("#attr-modal").classList.add("attr-appear");
-document.body.style.overflow = "hidden";
-
-});
-	
-
-
-document.querySelector("#attr-modal button").addEventListener("click", () => {
-document.querySelector("#attr-modal").classList.remove("attr-appear");
-document.body.style.overflow = "initial";
-	
+    });
 });
 
 
-const arr = {
-	0: "hero1",
-	1: "hero2",
-	2: "hero3",
-	3: "hero4"
+
+/* HEADER ANIMATING INTO VIEW ONSCROLL AS SOON AS HOMEPAGE FULLY OUT OF VIEW*/
+const targetElement = document.querySelector('#homepage');
+const elementToToggle = document.querySelector('header');
+
+const options = {
+    root: null, 
+    rootMargin: '0px',
+    threshold: .2 /*i.e. 20% of #homepage to be in view within viewport*/
 };
 
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) { // meaning if target element, i.e. homepage, is in view (even slightly)
 
-/*
+            elementToToggle.classList.remove('header-appear');
+        } else {
+            elementToToggle.classList.add('header-appear');
+        }
+    });
+}, options);
+
+// Start observing the target element
+observer.observe(targetElement);
 
 
 
-const scrollSpy = () => {
- let viewed = sections.filter( section => section.getBoundingClientRect().top >= 0 && section.getBoundingClientRect().top <= window.innerHeight) || 
-(section.getBoundingClientRect().bottom >= 0 && section.getBoundingClientRect().bottom <= window.innerHeight) || (section.getBoundingClientRect().top <= 0 && section.getBoundingClientRect().bottom >= window.innerHeight);
 
 
-if (viewed.includes(sections.at(-1)) {}
-	if contact is >40% intersecting
-		=> focus contact
-else
-	=>focus section taking up most of viewport
-	(calc (via window.inner - top if > 0 - bottom if > 0 / window.inner) => choose max, then creating list that matches max-ratio, then choosing last el in this list)
 
+
+/* ENTRY-ANIMATIONS FOR LARGER SECTIONS*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -20% 0px', /* OBSERVATION 'FRAME' EXCLUDES BOTTOM 20% OF VIEWPORT*/
+        threshold: 0
+    };
+
+    // A Map to keep track of elements that have triggered their actions
+    // This helps prevent re-triggering (NB:unobserve is primary mechanism)
+    const processedElements = new Map();
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio >= observerOptions.threshold) {
+
+                // If this element has already been processed (i.e. animated once since window load), skip it
+                if (processedElements.has(entry.target)) {
+                    return;
+                }
+
+                entry.target.style.setProperty('opacity', '1', 'important');
+
+                // Step 2: Set a timeout to remove the entry-anim class after 750ms (= transition duration)
+                const timeoutId = setTimeout(() => {
+                    entry.target.classList.remove('entry-fade');
+                    processedElements.delete(entry.target); // Clean up map with each entry
+                }, 1500);
+
+                /* BEFORE NEXT ROUND OF MAP CLEANUP: Mark the element as processed and store its timeout ID */
+                processedElements.set(entry.target, timeoutId);
+
+                // Stop observing this element immediately to prevent re-triggering
+                observer.unobserve(entry.target);
+            }
+
+        });
+    }, observerOptions);
+
+    const elementsToObserve = document.querySelectorAll('.entry-fade');
+
+    elementsToObserve.forEach(element => {
+        observer.observe(element);
+    });
+});
+
+
+
+
+
+
+/* FOOTER-APPEAR-ON-SCROLL*/
+
+
+let headerObserver = null; // Variable to store the Intersection Observer instance
+
+
+function setupHeaderFooterObserver() {
+  const headerEl = document.querySelector('header');
+  const footerEl = document.querySelector('footer'); 
+
+  // --- Step 1: Clean up any existing observer ---
+  if (headerObserver) {
+    headerObserver.disconnect();
+    headerObserver = null; // Clear the reference
+
+    // Ensure the class is removed when disconnecting, to clean up UI state
+    if (headerEl && headerEl.classList.contains('scrolled-past-footer')) {
+      headerEl.classList.remove('scrolled-past-footer');
+    }
+  }
+
+  // --- Step 2: Check conditions for activating the observer ---
+  if (!headerEl || !footerEl || window.innerWidth <= 768) {
+    return; // NO-GO IF EVEN ONE OF CONDITIONS DON'T APPLY
+  }
+
+  // --- Step 3: Initialize the observer if conditions are met ---
+
+  // Get the height of the header dynamically, to tweak 'rootMargin'
+  const headerHeight = headerEl.offsetHeight;
+
+  const observerOptions = {
+    root: null, // The viewport is the root container
+    rootMargin: `0px 0px -${headerHeight}px 0px`,
+    threshold: 0 // Trigger the callback as soon as any part of the target crosses the rootMargin boundary
+  };
+
+  const intersectionCallback = (entries) => {
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+        headerEl.classList.add('scrolled-past-footer');
+      } else {
+        headerEl.classList.remove('scrolled-past-footer');
+      }
+    });
+  };
+
+  headerObserver = new IntersectionObserver(intersectionCallback, observerOptions);
+
+  headerObserver.observe(footerEl);
 }
 
-*/
+// --- Event Listeners for initial setup and resize handling ---
 
-let sections = Array.from(document.querySelectorAll("section:not(:first-of-type)"));
+document.addEventListener('DOMContentLoaded', setupHeaderFooterObserver);
 
-function showCurrentNav() {
-		let sectionTops = [];
-		sections.forEach(section => {sectionTops.push(Math.abs(section.getBoundingClientRect().top) )} );
+// Re-check and re-setup observer on window resize.
+// Using a debounce to prevent excessive calls during rapid resizing.
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(setupHeaderFooterObserver, 200); // Debounce for 200ms
+});
 
-	
-		return sectionTops.indexOf(Math.min(...sectionTops));
-	}
 
-const scrollSpy = () => {
-	if (sections.at(-1).getBoundingClientRect().bottom < window.innerHeight) {Array.from(document.querySelector("#nav-scroller").children).at(-1).scrollIntoView();} else {Array.from(document.querySelector("#nav-scroller").children)[showCurrentNav()].scrollIntoView();}
-}
 
-window.addEventListener('scrollend', scrollSpy);
-window.addEventListener('load', scrollSpy);
-window.addEventListener('resize', scrollSpy);
 
-document.querySelector("#copyright-year").textContent = new Date(Date.now()).getFullYear();
+
+
+
+/*COPY EMAIL WHEN CLICKING 'CONTACT' BTN - TO AVOID OPENING RANDOM EMAIL CLIENT => CAN PASTE WHEREVER YOU WILL*/
+
+    const popup = document.querySelector('#popup');
+    const emailErrorPopup =  document.querySelector('#email-error-popup');
+    const emailLinks = Array.from(document.querySelectorAll('.email-link'));
+
+    emailLinks.forEach(emailLink => {
+        emailLink.addEventListener('click', async (event) => {
+            event.preventDefault();
+
+            const emailAddress = emailLink.href ? emailLink.href.slice(7) : '';
+
+            if (emailAddress) {
+                try {
+                await navigator.clipboard.writeText("gn.onwuneme@yahoo.com");
+
+                    popup.classList.add('email-copied-confirm');
+
+                    /* AUTO-HIDE POPUP */
+                    setTimeout(() => {
+                        popup.classList.remove('email-copied-confirm');
+                    }, 2000);
+
+                } catch (err) {
+                    console.error('Failed to copy email: ', err);
+                    emailErrorPopup.classList.add('email-copied-confirm');
+
+                    /* AUTO-HIDE POPUP */
+                    setTimeout(() => {
+                        emailErrorPopup.classList.remove('email-copied-confirm');
+                    }, 2000);
+
+                }
+            } else {
+                console.warn('No email address found in href for this .email-link element.');
+            }
+        });
+    });
+
