@@ -237,6 +237,11 @@
             padding: 0 1rem;
             min-height: 4.5rem;
             height: 100%;
+            & span {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
         }
 
         & summary .fa-chevron-down { 
