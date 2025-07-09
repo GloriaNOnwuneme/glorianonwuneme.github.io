@@ -154,7 +154,6 @@ observer.observe(targetElement);
 
 /* ENTRY-ANIMATIONS FOR LARGER SECTIONS*/
 
-document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px 0px -20% 0px', /* OBSERVATION 'FRAME' EXCLUDES BOTTOM 20% OF VIEWPORT*/
@@ -165,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // This helps prevent re-triggering (NB:unobserve is primary mechanism)
     const processedElements = new Map();
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && entry.intersectionRatio >= observerOptions.threshold) {
 
@@ -195,9 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const elementsToObserve = document.querySelectorAll('.entry-fade');
 
     elementsToObserve.forEach(element => {
-        observer.observe(element);
+        fadeObserver.observe(element);
     });
-});
 
 
 
