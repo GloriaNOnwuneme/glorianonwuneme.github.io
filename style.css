@@ -12,15 +12,12 @@
         .intext-link {color: inherit;}
         .large-text {font-size: 2rem;}
 
-        .invert-btn {position: relative; display: flex; padding: .2rem; place-content: center; place-items: center; border: 1px solid !important; height: fit-content; border-radius: 0px; transition: filter 1000ms; filter: invert(0); z-index: 1000000; color: inherit; text-decoration: none; text-align: center}
+        .invert-btn {position: relative; display: flex; padding: .2rem; place-content: center; place-items: center; border: 1px solid !important; height: fit-content; border-radius: 0px; transition: filter 1000ms; filter: invert(0); z-index: 1000000; color: inherit; text-decoration: none; text-align: center;}
 
-        .invert-btn-motif { &::before {position: absolute; top: 100%; left: 100%; height: 50%; content: ''; aspect-ratio: 1/1; border-radius: 50%; transform: translate(-50%, -50%) scale(0); transition: transform 1000ms; background: inherit !important; filter: invert(1);
-        /* +/-1 added to avoid cutting into border */
-        
-        clip-path: polygon(50% -1px, calc(100% + 1px) -1px, calc(100% + 1px)  calc(100% + 1px), -1px  calc(100% + 1px), -1px 50%, 50% 50%);}}
+        .invert-btn-motif { &::before {position: absolute; top: 100%; left: 100%; height: 50%; content: ''; aspect-ratio: 1/1; border-radius: 50%; transform: translate(-50%, -50%) scale(0); transition: transform 1000ms; background: inherit !important; filter: invert(1); clip-path: polygon(50% -1px, calc(100% + 1px) -1px, calc(100% + 1px)  calc(100% + 1px), -1px  calc(100% + 1px), -1px 50%, 50% 50%);}}
 
-        .invert-btn-white {background: white !important;}
-        .invert-btn-black {color: white; background: black !important;}
+        .invert-btn-white {color: black !important; background: white !important;}
+        .invert-btn-black {color: white !important; background: black !important;}
 
         .invert-btn-white.invert-btn-motif {
             &::before {border: 1px solid black; 
@@ -32,12 +29,12 @@
         .invert-btn-motif.top-left {&::before {top: 0; left: 0; background: white; clip-path: polygon(-1px -1px, calc(100% + 1px) -1px, calc(100% + 1px) 50%, 50% 50%, 50% calc(100% + 1px), -1px calc(100% + 1px));}}
         .invert-btn-motif.top-right { &::before {top: 0; right: 0; background: white; clip-path: polygon(-1px -1px, calc(100% + 1px) -1px, calc(100% + 1px) calc(100% + 1px), 50% calc(100% + 1px), 50% 50%, -1px 50%);}}
 
-        .invert-btn.active, .invert-btn:hover {&::before {display: flex;} filter: invert(1) !important;}
+        .invert-btn.active, .invert-btn:hover {filter: invert(1) !important; &::before {display: flex;} }
 
             
         .invert-btn.active, .invert-btn-motif:hover {&::before {display: flex; transform: translate(-50%, -50%) scale(1) !important;}}        
 
-        .focus-box {display: flex; flex-wrap: wrap; max-width: 250px; place-items: center; place-content: center; gap: .5rem; & > * {text-align: center; place-items: center; place-content: center; display: flex; flex-wrap: wrap; padding:.2rem; width: fit-content; background: black; color: white;}}
+        .focus-box {display: flex; flex-wrap: wrap; max-width: 250px; place-items: center; place-content: center; gap: .5rem; & > * {display: flex; flex-wrap: wrap; place-items: center; place-content: center; text-align: center; padding: .2rem; width: fit-content; background: black; color: white;}}
 
         body { min-width: 320px; width: 100%;}
 
@@ -46,7 +43,7 @@
 
         #homepage, section {margin-bottom: 6rem;}
 
-        header { display: flex; align-items: center; align-content: center; position: fixed; background: black; z-index: 1099900; /*max-width: 100% !important; */ width: 100%; bottom: 0rem; left: 0; right: 0; gap: 2rem; padding: 1rem 2rem; transform: translateY(calc(100% + 4rem)); transition: transform 500ms, opacity 500ms, left 500ms, width 500ms, padding 500ms;
+        header { display: flex; align-items: center; align-content: center; position: fixed; background: black; z-index: 1099900; width: 100%; bottom: 0rem; left: 0; right: 0; gap: 2rem; padding: 1rem 2rem; transform: translateY(calc(100% + 4rem)); transition: transform 500ms, opacity 500ms, left 500ms, width 500ms, padding 500ms;
             
             &::after {display: block; position: absolute; z-index: 0; content: ""; background: black; box-shadow: 0px -5px 5px rgba(128,128,128,.5); pointer-events: none; inset: 0 -2rem 0 -2rem; background: black; transition: box-shadow 500ms;} 
             
@@ -80,9 +77,7 @@
         h3 {font-size: 1.8rem;}
         h4 {font-size: 1.5rem;}
 
-        header .nav-link, #homepage .nav-link {display: flex; width: 100%; height: 100%; min-height: 3.5rem; text-decoration: none;}
-
-/*        #homepage .nav-link {border: 1px solid;}*/
+        header .nav-link, #homepage .nav-link {display: flex; width: 100%; height: 100%; min-height: 3.5rem; text-decoration: none; & button {height: 100%; width: 100%;}}
 
         footer {display: flex; flex-wrap: wrap; flex-basis: 150px; justify-content: space-between; padding: 2rem; height: 14rem; background: black; color: white !important;}
 
@@ -278,7 +273,6 @@
         width: 100%;
         gap: 1rem;
         transition: transform 0.3s ease-in-out; /* for mobile menu*/
-
     }
 
 
@@ -419,10 +413,9 @@
             top: 100%;
             left: 0;
             width: 100%;
-            /* background-color: white; */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             z-index: 999; /* Below hamburger button */
             padding: 10px 0;
+            background: white;
 
             /* Initial state: hidden */
             max-height: 0;
@@ -430,7 +423,7 @@
             opacity: 0;
             pointer-events: none; /* Make it unclickable when hidden */
             transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-                & .nav-link {border: none; border-bottom: 1px solid;;}
+                & .nav-link {border: none !important; border-bottom: 1px solid !important;}
 
         }
 
@@ -464,6 +457,3 @@
         .projects-img-portrait {display: initial;}
 
     }
-
-
-
