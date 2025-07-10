@@ -15,7 +15,11 @@ document.addEventListener('DOMContentLoaded', setCopyrightYear);
 
 /* STORING HEIGHTS OF DETAILS + REFRESHING DATA ONRESIZE*/
 
-            const fetchSkillsHeights = (detailName) => {return Array.from(document.querySelectorAll(`details[name=${detailName}] .focus-box`)).map(box => box.getBoundingClientRect().height);}
+            const fetchSkillsHeights = (detailName) => {
+                let detes = Array.from(document.querySelectorAll(`details[name=${detailName}] .focus-box`)).map(box => box.getBoundingClientRect().height);
+                console.log(detes);
+                return detes;
+            }
             window.onload = () => {fetchSkillsHeights('skills'); fetchSkillsHeights('services');};
             window.onresize = () => {fetchSkillsHeights('skills'); fetchSkillsHeights('services');};
             
@@ -39,7 +43,9 @@ const detailsGroups = (detailName) => {
     
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            detailsElements.forEach((sum, i) => sum.classList.remove('active'));
+
+            detailsElements.forEach((sum, i) => {sum.classList.remove('active'); sum.parentElement.removeAttribute("open");});
+            
 
             let varName = `--skillset-height-${detailName}`;
 
@@ -56,7 +62,8 @@ const detailsGroups = (detailName) => {
                     document.querySelector(':root').style.setProperty(varName, `0px`);
                     setTimeout(() => {document.querySelector(':root').style.setProperty(varName, `${nums[i]}px`); btn.parentElement.open = true;}, 1100);
                 } else {
-                    setTimeout(() => {btn.parentElement.open = true;}, 500);                }
+                    setTimeout(() => {btn.parentElement.open = true;}, 500); /* SEE IF DELAY TOO SHORT FOR MOBILES, EVEN IF ALL DETAILS CLOSED HERE*/
+                }
                 
             }
 
