@@ -153,7 +153,7 @@
 
     .projects-slide .testimonial {margin-top: 2rem;}
     .projects-slide .focus-box-ctn {background: black; padding: 1.5rem; text-align: center; display: flex; gap: 1rem; flex-direction: column;
-        & * {color: white !important;} /* TOOLS USED BOX NOT SHOWING IN MY GOOGLE PIXEL 3A*/
+        & * {color: white !important; opacity: 1 !important;} /* TOOLS USED BOX NOT SHOWING IN MY GOOGLE PIXEL 3A*/
         & h4 /* reads 'TOOLS USED' */ {color: white; width: fit-content; border-bottom: 1px solid white; margin: auto; padding: .5rem;}
         & article {
             width: 100%;
