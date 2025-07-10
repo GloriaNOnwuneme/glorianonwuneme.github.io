@@ -45,14 +45,11 @@ const detailsGroups = (detailName) => {
             e.preventDefault();
 
 
-            if (detailsElements.some(info => info.parentElement.open)) {
-                setTimeout(() => {detailsElements.forEach((sum, i) => {sum.classList.remove('active'); sum.parentElement.removeAttribute("open");});}, 1100); 
-            }
-            /*
+            
             if (window.matchMedia("(max-width: 767px)").matches) {
             detailsElements.forEach((sum, i) => {sum.classList.remove('active'); sum.parentElement.removeAttribute("open");});
             }
-            */
+            
 
             let varName = `--skillset-height-${detailName}`;
 
