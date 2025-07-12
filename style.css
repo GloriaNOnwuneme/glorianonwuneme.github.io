@@ -166,7 +166,7 @@
     .projects-slide-btt {text-decoration: none; color: black; background: white;}
     .projects-slide-btt-ctn {display: none; justify-content: end; width: 100%; margin-top: 2rem;}
 
-    .projects-figure {width: 100%; border: 1px solid; position: relative; overflow: hidden; & div {display: flex; padding:.5rem; gap: .5rem; justify-content: end; position: absolute; top: 0; right: 0;}}
+    .projects-figure {width: 100%; border: 1px solid; position: relative; overflow: hidden; & div {display: flex; position: absolute; top: 0; right: 0; padding: .5rem; gap: .5rem; justify-content: end;}}
 
 
 
@@ -198,11 +198,12 @@
     .skills-nav {height: 100%; border-left: 1px solid; padding-top: 1.4rem;}
 
 
-    .skills-nav details:last-of-type > div {border-bottom: 1px solid; & .focus-box {padding-bottom: 1rem !important; align-items: center;}}
+    .skills-nav details:last-of-type > div {border-bottom: 1px solid; & .focus-box {padding-bottom: 1rem !important; align-items: center; align-content: center;}}
 
-    .skills-nav details > div { padding: 1rem 0rem;}
+   /* .skills-nav details > div { padding: 1rem 0rem;}*/
 
-
+	.skills-nav details > div { padding: 0 !important;}
+	.skills-nav .focus-box {padding-top: 2rem !important;}
 
     .skills-nav details {
         display: flex;
@@ -396,6 +397,7 @@
         
         #projects-grid {grid-auto-flow: row; grid-template-columns: unset;}
         #projects-nav {position: unset;}
+        .projects-slide-btt-ctn {display: flex;}
 
         #skills-grid {grid-auto-flow: row; grid-template-columns: unset; grid-template-rows: unset;}
         #skills-grid > div:nth-of-type(2) {grid-row-start: 3; margin-top: 2rem;}
@@ -463,6 +465,3 @@
         .projects-img-portrait {display: initial;}
     }
 
-    @media (max-height: 700px) {
-            .projects-slide-btt-ctn {display: flex;}
-    }
