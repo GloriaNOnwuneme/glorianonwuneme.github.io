@@ -45,7 +45,8 @@ const detailsGroups = (detailName) => {
             e.preventDefault();
 
 
-            
+            detailsElements.forEach((sum, i) => {sum.classList.remove('active');});
+
             if (window.matchMedia("(max-width: 767px)").matches) {
             detailsElements.forEach((sum, i) => {sum.classList.remove('active'); sum.parentElement.removeAttribute("open");});
             }
