@@ -64,7 +64,9 @@ const detailsGroups = (detailName) => {
                 detail.querySelector("summary").classList.add("active");
                 if (detailsElements.some(info => info.open)) {
                     document.documentElement.style.setProperty(varName, `0px`);
-                    if (window.matchMedia("(max-width: 767px)").matches) {detailsElements.filter(box => box.open)[0].removeAttribute("open");}
+                    if (window.matchMedia("(max-width: 767px)").matches) {
+                        detailsElements.forEach(box => box.removeAttribute("open"));
+                    }
                     setTimeout(() => {
                         document.documentElement.style.setProperty(varName, `${nums[i]}px`);
                         detail.open = true;
