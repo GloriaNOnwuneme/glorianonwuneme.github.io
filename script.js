@@ -12,62 +12,62 @@ function setCopyrightYear() {
 document.addEventListener('DOMContentLoaded', setCopyrightYear);
 
 
-
 /* STORING HEIGHTS OF DETAILS + REFRESHING DATA ONRESIZE*/
 
-            const fetchSkillsHeights = (detailName) => {
-                let detes = Array.from(document.querySelectorAll(`details[name=${detailName}] .focus-box`)).map(box => box.getBoundingClientRect().height);
-                console.log(detes);
-                return detes;
-            }
-            window.onload = () => {fetchSkillsHeights('skills'); fetchSkillsHeights('services');};
-            window.onresize = () => {fetchSkillsHeights('skills'); fetchSkillsHeights('services');};
+const fetchDetailsHeights = (detailName) => {
+    return Array.from(document.querySelectorAll(`details[name=${detailName}] > div > div`)).map(box => box.getBoundingClientRect().height);
+    
+}
+
+const resizeDetailsHeights = (detailName) => {
+    let details = Array.from(document.querySelectorAll(`details[name=${detailName}]`));
+        let varName = `--skillset-height-${detailName}`;
+
+    if (details.some(box => box.open)) {
+        document.documentElement.style.setProperty(varName, `${details.filter(box => box.open)[0].lastElementChild.firstElementChild.getBoundingClientRect().height}px`);
+    }
+}
+
+/* Create event listeners for load and resize */
+window.onload = () => {fetchDetailsHeights('skills'); fetchDetailsHeights('services');};
+window.onresize = () => {resizeDetailsHeights('skills'); resizeDetailsHeights('services');};
             
 
-
-
-
-
-
-
-/* ANIMATING DETAILS IN SKILLS/SERVICES */
+/* ANIMATING DETAILS ELEMENTS */
 
 const detailsGroups = (detailName) => {
 
-    const detailsElements = Array.from(document.querySelectorAll(`[name='${detailName}'] summary`));
-    /* getting summary-elements to define click evtListeners below*/
-    detailsElements.forEach((btn, i) => {
-        let nums = fetchSkillsHeights(detailName);
-        console.log('boxheights', nums);
-        console.log('btn clicked', i);
+    const detailsElements = Array.from(document.querySelectorAll(`[name='${detailName}']`));
+    /* getting all grouped details by value of name-attributes*/
+
+    detailsElements.forEach((detail, i) => {
     
-        btn.addEventListener('click', (e) => {
+        detail.querySelector("summary").addEventListener('click', (e) => {
             e.preventDefault();
+            let nums = fetchDetailsHeights(detailName); /* storing heights of unchanging contained divs*/
+            let transitionDur = parseInt(window.getComputedStyle(detailsElements[0].lastElementChild).transitionDuration)*1000; /* this method gives transition-duration in (s) */
 
-
-            detailsElements.forEach((sum, i) => {sum.classList.remove('active');});
-
-            if (window.matchMedia("(max-width: 767px)").matches) {
-            detailsElements.forEach((sum, i) => {sum.classList.remove('active'); sum.parentElement.removeAttribute("open");});
-            }
-            
+            detailsElements.forEach(det => det.querySelector("summary").classList.remove('active'));
 
             let varName = `--skillset-height-${detailName}`;
 
-            /* TARGETING .parentElement TO ACCESS DETAILS ELEMENT*/
-            btn.parentElement.open 
-                ? document.querySelector(':root').style.setProperty(varName, `0px`)
-                : document.querySelector(':root').style.setProperty(varName, `${nums[i]}px`);
+            detail.open 
+                ? document.documentElement.style.setProperty(varName, `0px`)
+                : document.documentElement.style.setProperty(varName, `${nums[i]}px`);
 
-            if (btn.parentElement.open) {
-                setTimeout(() => {btn.parentElement.removeAttribute("open")}, 1100);
+            /* setTimeouts needed if any detail already open so closing details can detransition before losing [open] attr */
+            if (detail.open) {
+                setTimeout(() => {detail.removeAttribute("open")}, transitionDur);
             } else {
-                btn.classList.add('active');
-                if (detailsElements.some(info => info.parentElement.open)) {
-                    document.querySelector(':root').style.setProperty(varName, `0px`);
-                    setTimeout(() => {document.querySelector(':root').style.setProperty(varName, `${nums[i]}px`); btn.parentElement.open = true;}, 1100);
+                detail.querySelector("summary").classList.add('active');
+                if (detailsElements.some(info => info.open)) {
+                    document.documentElement.style.setProperty(varName, `0px`);
+                    setTimeout(() => {
+                        document.documentElement.style.setProperty(varName, `${nums[i]}px`);
+                        detail.open = true;
+                    }, transitionDur);
                 } else {
-                    setTimeout(() => {btn.parentElement.open = true;}, 500); /* SEE IF DELAY TOO SHORT FOR MOBILES, EVEN IF ALL DETAILS CLOSED HERE*/
+                    detail.open = true;
                 }
                 
             }
@@ -76,9 +76,11 @@ const detailsGroups = (detailName) => {
     });
 }
 
-/*running details animation function for separate .skills-nav elements*/
+/*running details animation function */
 detailsGroups('skills');
 detailsGroups('services');
+
+
 
 
     const hamburgerButton = document.querySelector('#hamburger-button');
