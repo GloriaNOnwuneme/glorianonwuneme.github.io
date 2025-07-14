@@ -47,6 +47,8 @@ const detailsGroups = (detailName) => {
             let nums = fetchDetailsHeights(detailName); /* storing heights of unchanging contained divs*/
             let transitionDur = parseInt(window.getComputedStyle(detailsElements[0].lastElementChild).transitionDuration)*1000; /* this method gives transition-duration in (s) */
 
+
+            
             detailsElements.forEach(det => det.querySelector("summary").classList.remove('active'));
 
             let varName = `--skillset-height-${detailName}`;
@@ -59,9 +61,10 @@ const detailsGroups = (detailName) => {
             if (detail.open) {
                 setTimeout(() => {detail.removeAttribute("open")}, transitionDur);
             } else {
-                detail.querySelector("summary").classList.add('active');
+                detail.querySelector("summary").classList.add("active");
                 if (detailsElements.some(info => info.open)) {
                     document.documentElement.style.setProperty(varName, `0px`);
+                    if (window.matchMedia("(max-width: 767px)").matches) {detailsElements.filter(box => box.open)[0].removeAttribute("open");}
                     setTimeout(() => {
                         document.documentElement.style.setProperty(varName, `${nums[i]}px`);
                         detail.open = true;
