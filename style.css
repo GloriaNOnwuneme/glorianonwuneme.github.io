@@ -435,7 +435,7 @@
 
         }
 
-        header #nav-links-container.open {
+        header.header-appear #nav-links-container.open {
             max-height:  calc(100vh - 8rem) !important; /* FOR MOBILES IN LANDSCAPE */
             overflow-Y: scroll;
             scrollbar-width: none;
